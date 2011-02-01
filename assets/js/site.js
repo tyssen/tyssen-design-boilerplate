@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	$.preloadCssImages();
+	
 	// google analytics
 	//var pageTracker = _gat._getTracker("UA-2575846-1");
 	pageTracker._initData();
