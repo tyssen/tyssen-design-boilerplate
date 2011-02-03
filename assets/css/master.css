@@ -1,7 +1,9 @@
 @font-face {
-	font-family: 'Honey Script Light';
-	src: url('HoneyScript-Light.eot');
-	src: local('Honey Script Light'), local('HoneyScript-Light'), url('HoneyScript-Light.woff') format('woff'), url('HoneyScript-Light.ttf') format('truetype'), url('HoneyScript-Light.svg#HoneyScript-Light') format('svg');
+	font-family: 'MyFontFamily';
+	src: url('myfont-webfont.eot#') format('embedded-opentype'), 
+	     url('myfont-webfont.woff') format('woff'), 
+	     url('myfont-webfont.ttf')  format('truetype'),
+	     url('myfont-webfont.svg#webfontFqDaNIX6') format('svg');
 }
 
 @media screen {
