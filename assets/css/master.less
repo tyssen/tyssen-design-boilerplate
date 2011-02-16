@@ -67,13 +67,6 @@ body {
 article, aside, figure, footer, header, 
 hgroup, nav, section { display:block }
 
-
-/*		Default 8-column layout
-		60 px columns, 24 px gutters, 60 px margins, 768 px total
-		---------------------------------------------------------
-		1     2      3      4      5      6      7      8     
-		60px  144px  228px  312px  396px  480px  564px  648px	*/
-
 	#wrap {
 		font-size: 81.25%;
 		margin: 0 auto;
@@ -443,56 +436,4 @@ tr { page-break-inside: avoid }
 @media all and (orientation:landscape) { 
   /* Style adjustments for landscape mode goes here */
   
-}
-
-/*	13-column layout
-	60 px columns, 24 px gutters, 72 px margins, 1212 px total (extra space for scrollbars)
-	---------------------------------------------------------------------------------------
-	1     2      3      4      5      6      7      8      9      10     11     12     13
-	60px  144px  228px  312px  396px  480px  564px  648px  732px  816px  900px  984px  1068px	*/
-
-@media only screen and (min-width: 1212px) {
-	
-	body {
-		padding: 96px 72px 0;
-		width: 1068px;
-	}
-	
-}
-
-
-/*	5-column layout
-	60 px columns, 24 px gutters, 42 px margins, 480 px total
-	---------------------------------------------------------
-	1     2      3      4      5
-	60px  144px  228px  312px  396px	*/
-
-@media only screen and (max-width: 767px) and (min-width: 480px) {
-
-	/* Prevent iOS, WinMobile from adjusting font size */
-	html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
-	
-	body {
-		padding: 60px 42px 0;
-		width: 396px;
-	}
-	
-}
-
-/*	3-column layout
-	60 px columns, 24 px gutters, 46 px margins, 320 px total
-	---------------------------------------------------------
-	1     2      3
-	60px  144px  228px	*/
-
-@media only screen and (max-width: 479px) {
-
-	/* Prevent iOS, WinMobile from adjusting font size */
-  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
-	
-	body {
-		padding: 48px 46px 0;
-		width: 228px;
-	}
-	
 }
