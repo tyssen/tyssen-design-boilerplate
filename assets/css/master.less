@@ -32,14 +32,14 @@
 }
 
 .box(@x,@y,@spread,@color) {
-	-moz-box-shadow: @x,@y,@spread,@color; 
-	-webkit-box-shadow: @x,@y,@spread,@color;
-	box-shadow: @x,@y,@spread,@color;
+	-moz-box-shadow: @x @y @spread @color; 
+	-webkit-box-shadow: @x @y @spread @color;
+	box-shadow: @x @y @spread @color;
 	behavior: url(/assets/js/PIE.htc)
 }
 
 .ts(@x,@y,@spread,@color) {
-	text-shadow: @x,@y,@spread,@color;
+	text-shadow: @x @y @spread @color;
 }
 
 // ---------------------------------------------------------------
