@@ -70,8 +70,8 @@ hgroup, nav, section { display:block }
 	#wrap {
 		font-size: 81.25%;
 		margin: 0 auto;
-		padding: 84px 60px 0;
-		width: 648px;
+		padding: 0;
+		width: 960px;
 	}
 	
 		#content {
@@ -103,7 +103,7 @@ a:active { outline: none }
 a,button { 
 	.trans(background .3s ease, color 0.2s linear)
 }
-h1, h2, h3, h4, h5 { 
+h1, h2, h3 { 
 	line-height: 1.2;
 	margin: 1em 0 .5em;
 }
@@ -198,10 +198,20 @@ button:hover, button:focus {
 	color:#FFF;
 }
 
-.offset { 
-	left: -999em;
-	position: absolute;
-	overflow: hidden
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
+}
+body:hover .hidden a,
+body:hover .hidden input,
+body:hover .hidden button {
+  display: none !important;
 }
 
 ul[role=navigation], .nav, .nav ul { 
