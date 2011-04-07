@@ -6,33 +6,35 @@
 @hd_color: #2D3435;
 @la_color: #2D3435;
 @lh_color: #2D3435;
-@b_font: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans serif;
+@b_font: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
 
 // Mixins
 .round (@radius) {
-	border-radius: @radius;
-	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
 	behavior: url(/assets/js/PIE.htc)
 }
 
 .trans(@prop1,@prop2) {
-	-webkit-transition: @prop1,@prop2;
 	-moz-transition: @prop1,@prop2;
 	-o-transition: @prop1,@prop2;
+	-webkit-transition: @prop1,@prop2;
 	transition: @prop1,@prop2;
 	-webkit-appearance: none;
 }
 
 .grad(@from,@to) {
 	background-image: -moz-linear-gradient(top, @from, @to);
+	background-image: -o-linear-gradient(top, @from, @to);
 	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, @from),color-stop(1, @to));
 	-pie-background: linear-gradient(@from, @to);
 	behavior: url(/assets/js/PIE.htc)
 }
 
 .box(@x,@y,@spread,@color) {
-	-moz-box-shadow: @x @y @spread @color; 
+	-moz-box-shadow: @x @y @spread @color;
+	-o-box-shadow: @x @y @spread @color;
 	-webkit-box-shadow: @x @y @spread @color;
 	box-shadow: @x @y @spread @color;
 	behavior: url(/assets/js/PIE.htc)
@@ -54,11 +56,9 @@
 
 @media screen {
 
-html { 
-	overflow-y: scroll;
- }
+html { overflow-y: scroll }
 body {
-	background: @bg_color;
+	background: @bg_color url(http://griddle.it/960-12-20?color=FFE5E5&num=false) repeat-y center;
 	color: @b_color;
 	font: 100%/1.5 @b_font;
 	margin: 0
@@ -108,13 +108,13 @@ h1, h2, h3 {
 	margin: 1em 0 .5em;
 }
 h1 { 
-	font-size: 276.92%; 
+	font-size: 2.7692; 
 	line-height: 1;
 	margin: 0 0 .8em
 }
-h2 { font-size: 184.57% }
-h3 { font-size: 138.46% }
-h4 { font-size: 123.077% }
+h2 { font-size: 1.8457em }
+h3 { font-size: 1.3846em }
+h4 { font-size: 1.2308em }
 p { line-height: 1.5; margin: 0 0 1em }
 ul, ol { margin: 0 0 1em 1.5em; padding-left: 1.5em }
 li { margin-bottom: .5em }
@@ -136,11 +136,13 @@ blockquote { margin: 0; padding: 0 }
 		display: block;
 		text-align: right
 	}
-table { border-collapse: collapse; font-size:inherit; font:100% }
+table { border-collapse: collapse; font-size:inherit; font:1em }
 	tr { vertical-align: top }
 		th, td { padding: 2px; vertical-align:top }
 
 input::-webkit-input-placeholder, input:-moz-placeholder { color: #626262 }
+
+select, input, textarea, button { font-family: sans-serif }
 
 textarea { overflow: auto }
 
@@ -174,7 +176,7 @@ button, input, select, textarea { margin: 0 }
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	color: #FFF;
 	cursor: pointer;
-	font-size:107.69%;
+	font-size:1.0769em;
 	font-weight:bold;
 	letter-spacing:1px;
 	min-height: 0;
@@ -198,7 +200,7 @@ button:hover, button:focus {
 	color:#FFF;
 }
 
-.hidden {
+.hide {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -208,9 +210,9 @@ button:hover, button:focus {
   width: 1px !important; 
   overflow: hidden;
 }
-body:hover .hidden a,
-body:hover .hidden input,
-body:hover .hidden button {
+body:hover .hide a,
+body:hover .hide input,
+body:hover .hide button {
   display: none !important;
 }
 
@@ -229,7 +231,7 @@ div[role=banner] {
 		a {
 			background-color: #388400;
 			color: #FFF; 
-			font-size: 70%;
+			font-size:.7692em;
 			left: -9999em; top: 0; 
 			line-height: 1;
 			position: absolute;
@@ -239,23 +241,23 @@ div[role=banner] {
 		}
 		a:focus, a:active { left: 0 }
 	}
-	
+
 	.logo { 
 		float: left;
 		margin: ;
 	}
-	
+
 	.title { margin: 0 }
-	
+
 	.slogan { margin: 0 }
-	
+
 	div[role=banner] ul { 
 		li { }
 			a { text-decoration: none }
 			a:visited { color: #013A6F }
 			a:hover, a:focus, a:active, .active { color: #C00 }
 	}
-	
+
 	.aux-nav {
 		li { }
 	}
@@ -316,12 +318,12 @@ form {
 	}
 
 		fieldset * { margin-left: 10px }
-	
+
 		legend { 
 			padding: 0;
 			span {
 				color: #00398D;
-				font-size: 130%;
+				font-size:1.2308em;
 				font-weight: bold;
 				left: 10px;
 				letter-spacing: 2px
@@ -330,7 +332,7 @@ form {
 				text-transform: uppercase
 			}
 		}
-	
+
 		label, input[type=button], input[type=submit], button { cursor: pointer }
 
 		label {
@@ -340,12 +342,12 @@ form {
 			margin-bottom: .2em;
 			width: 7em
 		}
-	
+
 		input, textarea {
 			font-size: 14px;
 			padding: 2px 4px;
 		}
-	
+
 		input, textarea, select { 
 			border: 1px solid #CCC;
 			margin-bottom: .5em;
@@ -361,10 +363,10 @@ form {
 
 		input[type="radio"] { vertical-align: text-bottom }
 		input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline }
-	
+
 		input:hover, input:hover, textarea:hover, 
 		input:focus, input:focus, textarea:focus { background-color: #EAF1FF }
-	
+
 		label.error {
 			color: #C00;
 			display: block;
@@ -435,17 +437,17 @@ caption { background: #fff; margin-bottom: 2em; text-align: left }
 thead { display: table-header-group }
 tr { page-break-inside: avoid } 
 
-.footer { clear: both; margin: 20px 0; font-size: 85% }
+.footer { clear: both; margin: 20px 0; font-size: .8125em }
 .footer ul { list-style: none; margin: 0; padding: 0 }
 
 }
 
 @media all and (orientation:portrait) { 
   /* Style adjustments for portrait mode goes here */
-  
+
 }
 
 @media all and (orientation:landscape) { 
   /* Style adjustments for landscape mode goes here */
-  
+
 }
