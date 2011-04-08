@@ -163,17 +163,11 @@ label, input[type=button], input[type=submit], button { cursor: pointer }
 button, input, select, textarea { margin: 0 }
 
 .btn a, button {
-	background-color: #B11D0A;
-	background: #B11D0A -moz-linear-gradient(270deg, #B11D0A, #7D1407);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #B11D0A),color-stop(1, #7D1407));
-	-pie-background: linear-gradient(270deg, #B11D0A, #7D1407);
-	border: 1px solid #B11D0A;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background-color: @la_color;
+	.grad(@la_color,#AE0000);
+	border: 1px solid #AE0000;
+	.round(5px);
+	.box(0,1px,3px,rgba(0, 0, 0, .5));
 	color: #FFF;
 	cursor: pointer;
 	font-size:1.0769em;
@@ -182,14 +176,15 @@ button, input, select, textarea { margin: 0 }
 	min-height: 0;
 	padding: .4em 10px;
 	position: relative;
-	text-shadow: 1px 2px 1px rgba(88, 14, 5, 1);
+	.ts(1px, 2px, 1px, rgba(88, 14, 5, 1));
 	text-transform: uppercase;
 	vertical-align: middle;
 	zoom: 1;
 }
 .btn a:hover, .btn a:focus, .btn a:active,
 button:hover, button:focus { 
-	background: #7D1407;
+	background-color: #AE0000;
+	.grad(#AE0000,@la_color);
 	color:#FFF;
 	outline: none;
 	text-decoration:none
