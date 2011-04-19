@@ -21,6 +21,11 @@ head.ready(function() {
 		$("#contact").validate();
 	}
 	
+	if($('body').hasClass('customer')) {
+		$.metadata.setType("attr", "validate");
+		$('.customer form').validate();
+	}
+	
 	!window.jQuery && document.write(unescape('%3Cscript src="/assets/js/jquery-1.4.2.min.js"%3E%3C/script%3E'))
 });
 
