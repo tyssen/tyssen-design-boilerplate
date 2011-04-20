@@ -9,7 +9,7 @@
 @b_font: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
 
 // Mixins
-.round (@radius) {
+.round (@radius:5px) {
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
 	border-radius: @radius;
@@ -35,16 +35,47 @@
 	behavior: url(/assets/js/PIE.htc)
 }
 
-.box(@x,@y,@spread,@color) {
-	-moz-box-shadow: @x @y @spread @color;
-	-o-box-shadow: @x @y @spread @color;
-	-webkit-box-shadow: @x @y @spread @color;
-	box-shadow: @x @y @spread @color;
+.box(@box:0 1px 3px rgba(0,0,0,.25)) {
+	-moz-box-shadow: @box;
+	-o-box-shadow: @box;
+	-webkit-box-shadow: @box;
+	box-shadow: @box;
 	behavior: url(/assets/js/PIE.htc)
 }
 
-.ts(@x,@y,@spread,@color) {
-	text-shadow: @x @y @spread @color;
+.ts(@ts:1px 2px 1px rgba(88, 14, 5, 1)) {
+	text-shadow: @ts;
+}
+
+.button {
+	background-color: @la_color;
+	.grad(@la_color,#AE0000);
+	border: 1px solid #AE0000;
+	.round(5px);
+	@box:0 1px 3px rgba(0, 0, 0, .5);
+	.box(@box);
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline !important;
+	color: #FFF;
+	cursor: pointer;
+	font-size:1.0769em;
+	font-weight:bold;
+	letter-spacing:1px;
+	min-height: 0;
+	padding: .4em 10px;
+	position: relative;
+	.ts();
+	text-transform: uppercase;
+	vertical-align: middle;
+	zoom: 1;
+	&:hover, &:focus, &:active { 
+		background-color: #AE0000;
+		.grad(#AE0000,@la_color);
+		color:#FFF;
+		outline: none;
+		text-decoration:none
+	}
 }
 
 // ---------------------------------------------------------------
@@ -166,34 +197,14 @@ label, input[type=button], input[type=submit], button { cursor: pointer }
 button, input, select, textarea { margin: 0 }
 
 .btn a, button {
-	background-color: @la_color;
-	.grad(@la_color,#AE0000);
-	border: 1px solid #AE0000;
-	.round(5px);
-	.box(0,1px,3px,rgba(0, 0, 0, .5));
-	color: #FFF;
-	cursor: pointer;
-	font-size:1.0769em;
-	font-weight:bold;
-	letter-spacing:1px;
-	min-height: 0;
-	padding: .4em 10px;
-	position: relative;
-	.ts(1px, 2px, 1px, rgba(88, 14, 5, 1));
-	text-transform: uppercase;
-	vertical-align: middle;
-	zoom: 1;
-}
-.btn a:hover, .btn a:focus, .btn a:active,
-button:hover, button:focus { 
-	background-color: #AE0000;
-	.grad(#AE0000,@la_color);
-	color:#FFF;
-	outline: none;
-	text-decoration:none
+	.button
 }
 
-:selection,::-moz-selection,::-webkit-selection {
+:selection,::-webkit-selection {
+	background:#f094b7;
+	color:#FFF;
+}
+::-moz-selection {
 	background:#f094b7;
 	color:#FFF;
 }
@@ -236,8 +247,8 @@ div[role=banner] {
 			padding: .3em 0;
 			text-align: center;
 			width: 100%
+			&:focus, &:active { left: 0 }
 		}
-		a:focus, a:active { left: 0 }
 	}
 
 	.logo { 
@@ -407,9 +418,9 @@ body {
 #wrap { width: 100% !important }
 
 .nav, .skip, .aux-nav,
-.offset, form,
-.aside,
-.footer a { display: none }
+.hide, form,
+div[role=complementary],
+div[role=contentinfo] a { display: none }
 
 h1, h2, h3, h4, h5 { 
 	font-family: "Trebuchet MS", Verdana, sans-serif;
@@ -421,11 +432,6 @@ p, h2, h3 { orphans: 3; widows: 3 }
 a img { border: none }
 a:link, a:visited { color: #999; text-decoration: none }
 
-.img { 
-	float: right;
-	margin: 5px 0 5px 15px
-}
-
 table { margin: 1px; text-align: left }
 th { border-bottom: 1px solid #333; font-weight: bold }
 td { border-bottom: 1px solid #333 }
@@ -435,8 +441,8 @@ caption { background: #fff; margin-bottom: 2em; text-align: left }
 thead { display: table-header-group }
 tr { page-break-inside: avoid } 
 
-.footer { clear: both; margin: 20px 0; font-size: .8125em }
-.footer ul { list-style: none; margin: 0; padding: 0 }
+div[role=contentinfo] { clear: both; margin: 20px 0; font-size: .8125em }
+div[role=contentinfo] { list-style: none; margin: 0; padding: 0 }
 
 }
 
