@@ -15,18 +15,24 @@ head.ready(function() {
 	});
 	
 	if($('body').is('.home')) {
+		$('.nivoSlider').nivoSlider({
+			effect:'fade',
+			animSpeed:1000,
+			pauseTime:10000,
+			keyboardNav:true,
+			captionOpacity:0.8
+		});
 	}
 
-	if($('body').is('.p-contact')) {
+	if($('body').is('.contact')) {
 		$("#contact").validate();
 	}
 	
-	if($('body').hasClass('customer')) {
-		$.metadata.setType("attr", "validate");
-		$('.customer form').validate();
+	if($('body').is('.gallery')) {
+		$(".photos a").fancybox();
 	}
 	
-	!window.jQuery && document.write(unescape('%3Cscript src="/assets/js/jquery-1.4.2.min.js"%3E%3C/script%3E'))
+	window.jQuery || document.write('<script src="/assets/js/jquery-1.6.1.min.js">\x3C/script>')
 });
 
-head.js("/assets/js/modernizr-1.6.min.js","http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js","/assets/js/jquery.preload-5.js","/assets/js/superfish.js");
+head.js("//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js","/min/f=/assets/js/modernizr-1.6.min.js,/assets/js/respond.min.js,/assets/js/jquery.preload-5.js,/assets/js/hoverIntent.js,/assets/js/superfish.js,/assets/js/nivo.js,/assets/js/jquery.fancybox.js&20110519","//ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.pack.js");
