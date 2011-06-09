@@ -84,12 +84,6 @@
 	&:active { bottom:-2px;left:7.51em }
 }
 
-.clear {
-    overflow: hidden;
-    *zoom: 1;
-    *-ms-inject: expression(this.x||(this.innerHTML+='<br\ style="clear:both;font:0/0">',this.x=1));
-}
-
 // ---------------------------------------------------------------
 
 @font-face {
@@ -181,6 +175,7 @@ ul { list-style: disc }
 ul ul { list-style: circle }
 ol { list-style: decimal }
 dt, dd { margin:0; padding:0 }
+img,embed,object,video { max-width: 100% }
 img { border: 0 }
 .ie7 img { -ms-interpolation-mode: bicubic }
 abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help }
@@ -249,7 +244,7 @@ div[role=banner] {
 			position: absolute;
 			padding: .3em 0;
 			text-align: center;
-			width: 100%
+			width: 100%;
 			&:focus, &:active { left: 0 }
 		}
 	}
