@@ -31,14 +31,14 @@
 	-webkit-appearance: none;
 }
 
-.grad(@from,@to) {
-	background-image: -ms-linear-gradient(top, @from 0%, @to 100%);
-	background-image: -moz-linear-gradient(top, @from 0%, @to 100%);
-	background-image: -o-linear-gradient(top, @from 0%, @to 100%);
+.grad(@from,@to,@height) {
+	background-image: -ms-linear-gradient(top, @from 0, @to @height);
+	background-image: -moz-linear-gradient(top, @from 0, @to @height);
+	background-image: -o-linear-gradient(top, @from 0, @to @height);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @from), color-stop(1, @to));
-	background-image: -webkit-linear-gradient(top, @from 0%, @to 100%);
-	background-image: linear-gradient(top, @from 0%, @to 100%);
-	-pie-background: linear-gradient(@from, @to);
+	background-image: -webkit-linear-gradient(top, @from 0, @to @height);
+	background-image: linear-gradient(top, @from 0, @to @height);
+	 -pie-background: linear-gradient(top, @from 0, @to @height);
 }
 
 .box(@box:0 1px 3px rgba(0,0,0,.25)) {
@@ -54,7 +54,7 @@
 
 .button() {
 	background-color: @la_color;
-	.grad(@la_color,darken(@la_color, 20%));
+	.grad(@la_color,darken(@la_color, 20%),0);
 	border: 1px solid darken(@la_color, 20%);
 	.round(5px);
 	@box:0px 1px 3px rgba(0, 0, 0, .5);
@@ -76,7 +76,7 @@
 	zoom: 1;
 	&:hover, &:focus, &:active { 
 		background-color: darken(@la_color, 20%);
-		.grad(darken(@la_color, 20%),@la_color);
+		.grad(darken(@la_color, 20%),@la_color,0);
 		color:#FFF;
 		outline: none;
 		text-decoration:none
@@ -85,15 +85,6 @@
 }
 
 // ---------------------------------------------------------------
-
-@font-face {
-	font-family: 'MyWebFont';
-	src: url('webfont.eot');
-	src: url('webfont.eot?#iefix') format('embedded-opentype'),
-	     url('webfont.woff') format('woff'),
-	     url('webfont.ttf')  format('truetype'),
-	     url('webfont.svg#svgFontName') format('svg');
-	}
 
 @media screen {
 
@@ -132,12 +123,12 @@ audio[controls],canvas,video {
 			overflow: hidden
 		}
 		
-			div[role=main] {
+			[role=main] {
 				float: ;
 				width: ;
 			}
 			
-			div[role=complementary] {
+			[role=complementary] {
 				float: ;
 				width: ;
 			}
@@ -223,14 +214,12 @@ body:hover .hide button {
   display: none !important;
 }
 
-ul[role=navigation], .nav, .nav ul { 
-	list-style: none;
-	margin: 0;
-	padding: 0;
+[role=navigation] { 
+	.list;
 }
 
 /*------ header ------*/
-div[role=banner] { 
+[role=banner] { 
 	position: relative;
 }
 	.skip { 
@@ -258,7 +247,7 @@ div[role=banner] {
 
 	.slogan { margin: 0 }
 
-	div[role=banner] ul { 
+	[role=banner] ul { 
 		li { }
 			a { text-decoration: none }
 			a:visited { color: #013A6F }
@@ -342,7 +331,7 @@ form {
 		}
 		.ie6, .ie7 { legend { margin-left: -7px } }
 
-		label, input[type=button], input[type=submit], button { cursor: pointer }
+		label, button { cursor: pointer }
 
 		label {
 			display: block;
@@ -366,8 +355,6 @@ form {
 
 		select, input, textarea, button { font-family: sans-serif }
 
-		textarea { overflow: auto }
-
 		input, textarea {
 			font-size: 14px;
 			padding: 2px 4px;
@@ -385,10 +372,6 @@ form {
 		}
 
 		input::-webkit-input-placeholder, input:-moz-placeholder { color: #626262 }
-
-		input[type="radio"] { vertical-align: text-bottom }
-		input[type="checkbox"] { vertical-align: bottom }
-
 
 		input[type="radio"], input[type="checkbox"] {
 			border:0;
@@ -412,11 +395,6 @@ form {
 		}
 		
 		input[type="search"]::-webkit-search-decoration { -webkit-appearance: none }
-
-		button, input[type="submit"] {
-		    cursor: pointer;
-		    -webkit-appearance: button;
-		}
 		
 		button::-moz-focus-inner,input::-moz-focus-inner {
 			border: 0;
@@ -424,10 +402,11 @@ form {
 		}
 
 		button {
+			.button;
 			position:relative;
 			left:6.5em;
+		    -webkit-appearance: button;
 		}
-		.btn a, button { .button }
 
 		label.error {
 			color: #C00;
@@ -454,14 +433,14 @@ form {
 		}
 
 /*------ sidebar ------*/
-div[role=complementary] {
+[role=complementary] {
 
 }
 
 
 /*------ footer ------*/
 
-div[role=contentinfo] {
+[role=contentinfo] {
 	clear: both;
 	margin-top: 2em;
 	padding-top: 1em;
@@ -487,10 +466,10 @@ body {
 
 .nav, .skip, .aux-nav,
 .hide, form,
-div[role=complementary],
-div[role=contentinfo] a { display: none }
+[role=complementary],
+[role=contentinfo] a { display: none }
 
-h1, h2, h3, h4, h5 { 
+h1, h2, h3 { 
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	margin: 15px 0 5px
 }
@@ -509,17 +488,7 @@ caption { background: #fff; margin-bottom: 2em; text-align: left }
 thead { display: table-header-group }
 tr,img { page-break-inside: avoid } 
 
-div[role=contentinfo] { clear: both; margin: 20px 0; font-size: .8125em }
-div[role=contentinfo] { list-style: none; margin: 0; padding: 0 }
-
-}
-
-@media all and (orientation:portrait) { 
-  /* Style adjustments for portrait mode goes here */
-
-}
-
-@media all and (orientation:landscape) { 
-  /* Style adjustments for landscape mode goes here */
+[role=contentinfo] { clear: both; margin: 20px 0; font-size: .8125em }
+[role=contentinfo] { list-style: none; margin: 0; padding: 0 }
 
 }
