@@ -1,6 +1,10 @@
 // LESS 
 // ---------------------------------------------------------------
 // Variables
+@line: 24;
+@column: 100% / 18;
+@font-size: 16;
+@em:@font-size*1em;
 @bg_color: #DFE6E9;
 @b_color: #535B5F;
 @hd_color: #2D3435;
@@ -89,6 +93,7 @@
 @media screen {
 
 html {
+	height: 100%;
 	overflow-y: scroll;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-text-size-adjust: 100%;
@@ -100,15 +105,6 @@ body {
 	color: @b_color;
 	font: 100%/1.5 @b_font;
 	margin: 0
-}
-
-article,aside,details,figcaption,figure,
-footer,header,hgroup,nav,section { display: block }
-
-audio[controls],canvas,video {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
 }
 
 	#wrap {
@@ -134,6 +130,15 @@ audio[controls],canvas,video {
 			}
 
 /*------ general styles ------*/
+article,aside,details,figcaption,figure,
+footer,header,hgroup,nav,section { display: block }
+
+audio[controls],canvas,video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
 a { 
 	color: @la_color; 
 	font-weight: bold; 
@@ -171,12 +176,18 @@ ul { list-style: disc }
 ul ul { list-style: circle }
 ol { list-style: decimal }
 dt, dd { margin:0; padding:0 }
-img,embed,object,video { max-width: 100% }
+figure {
+	img, object, embed, video {
+		max-width: 100%; 
+		display: block;
+	}
+}
 img { border: 0 }
 .ie7 img { -ms-interpolation-mode: bicubic }
+figure { position: relative }
 abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help }
 .nav abbr[title] { border:0 }
-strong { font-weight: bold }
+b,strong { font-weight: bold }
 em { font-style: italic }
 blockquote, q { quotes:none }
 blockquote:before, blockquote:after,
@@ -380,6 +391,9 @@ form {
 
 		input[type="radio"], input[type="checkbox"] {
 			border:0;
+			-webkit-box-sizing: border-box;
+	   		-moz-box-sizing: border-box;
+		 	-o-box-sizing: border-box;
 			box-sizing: border-box;
 			margin:0 5px 0 0;
 			padding:0;

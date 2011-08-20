@@ -1,0 +1,200 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"do",
+				"description"
+			],
+			[
+				"t",
+				"table"
+			],
+			[
+				"bl",
+				"blockquote"
+			],
+			[
+				"role",
+				"role: role - banner"
+			],
+			[
+				"background",
+				"background: background-image: url"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 45,
+		"selected_items":
+		[
+			[
+				"syntax css",
+				"Set Syntax: CSS"
+			],
+			[
+				"synax css",
+				"Set Syntax: CSS"
+			],
+			[
+				"doct",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"img",
+				"Snippet: dummy image"
+			],
+			[
+				"form",
+				"Snippet: contact form"
+			],
+			[
+				"split",
+				"Snippet: Cartthrob plain text email"
+			],
+			[
+				"",
+				"Set Syntax: CSS"
+			]
+		],
+		"width": 392
+	},
+	"console":
+	{
+		"height": 0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/js/site.js",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/assets/css/master.less",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/assets/css/master.css",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/admin.php",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/config.php",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/index.html",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/index.php",
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/index.html",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0
+	},
+	"find_in_files":
+	{
+		"height": 0,
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	{
+		"mount_points":
+		[
+			"/Users/tyssen/Documents/Tyssen Design/Boilerplate"
+		]
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0
+	},
+	"input":
+	{
+		"height": 0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227,
+	"status_bar_visible": true
+}
