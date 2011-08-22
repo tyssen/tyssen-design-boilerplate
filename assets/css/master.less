@@ -1,94 +1,4 @@
-// LESS 
-// ---------------------------------------------------------------
-// Variables
-@line: 24;
-@column: 100% / 18;
-@font-size: 16;
-@em:@font-size*1em;
-@bg_color: #DFE6E9;
-@b_color: #535B5F;
-@hd_color: #2D3435;
-@la_color: #2D3435;
-@lh_color: #2D3435;
-@b_font: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
-
-// Mixins
-.pie() { behavior: url(/assets/js/PIE.htc) }
-
-.list() {
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-
-.round(@radius:5px) {
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
-}
-
-.trans(@prop1,@prop2) {
-	-moz-transition: @prop1,@prop2;
-	-o-transition: @prop1,@prop2;
-	-webkit-transition: @prop1,@prop2;
-	transition: @prop1,@prop2;
-	-webkit-appearance: none;
-}
-
-.grad(@from,@to,@height) {
-	background-image: -ms-linear-gradient(top, @from 0, @to @height);
-	background-image: -moz-linear-gradient(top, @from 0, @to @height);
-	background-image: -o-linear-gradient(top, @from 0, @to @height);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @from), color-stop(1, @to));
-	background-image: -webkit-linear-gradient(top, @from 0, @to @height);
-	background-image: linear-gradient(top, @from 0, @to @height);
-	 -pie-background: linear-gradient(top, @from 0, @to @height);
-}
-
-.box(@box:0 1px 3px rgba(0,0,0,.25)) {
-	-moz-box-shadow: @box;
-	-o-box-shadow: @box;
-	-webkit-box-shadow: @box;
-	box-shadow: @box;
-}
-
-.ts(@ts:1px 2px 1px rgba(88, 14, 5, 1)) {
-	text-shadow: @ts;
-}
-
-.button() {
-	background-color: @la_color;
-	.grad(@la_color,darken(@la_color, 20%),0);
-	border: 1px solid darken(@la_color, 20%);
-	.round(5px);
-	@box:0px 1px 3px rgba(0, 0, 0, .5);
-	.box(@box);
-	display: -moz-inline-stack;
-	display: inline-block;
-	*display: inline !important;
-	color: #FFF;
-	cursor: pointer;
-	font-size:1.0769em;
-	font-weight:bold;
-	letter-spacing:1px;
-	min-height: 0;
-	padding: .4em 10px;
-	position: relative;
-	.ts(1px 1px 1px darken(@la_color, 50%));
-	text-transform: uppercase;
-	vertical-align: middle;
-	zoom: 1;
-	&:hover, &:focus, &:active { 
-		background-color: darken(@la_color, 20%);
-		.grad(darken(@la_color, 20%),@la_color,0);
-		color:#FFF;
-		outline: none;
-		text-decoration:none
-	}
-	&:active { bottom:-2px;left:7.51em }
-}
-
-// ---------------------------------------------------------------
+@import "../bootstrap/preboot.less";
 
 @media screen {
 
@@ -101,9 +11,9 @@ html {
 }
 
 body {
-	background: @bg_color url(http://griddle.it/960-12-20?color=FFE5E5&num=false) repeat-y center;
-	color: @b_color;
-	font: 100%/1.5 @b_font;
+	background: @bg url(http://griddle.it/960-12-20?color=FFE5E5&num=false) repeat-y center;
+	color: @body;
+	.default(normal, 100%, 1.5)
 	margin: 0
 }
 
@@ -140,19 +50,20 @@ audio[controls],canvas,video {
 }
 
 a { 
-	color: @la_color; 
+	color: @link; 
 	font-weight: bold; 
 	text-decoration: none; 
 	vertical-align:baseline
 }
-a:link { -webkit-tap-highlight-color: @lh_color }
-a:hover, a:focus, a:active { color: @lh_color; text-decoration: underline }
+a:link { -webkit-tap-highlight-color: @hover }
+a:hover, a:focus, a:active { color: @hover; text-decoration: underline }
 a:focus { outline: thin dotted }
 a:active { outline: none }
 a,button { 
-	.trans(background .3s ease, color 0.2s linear)
+	.transition(background .3s ease, color 0.2s linear)
 }
 h1, h2, h3 { 
+	color:@head;
 	line-height: 1.2;
 	margin: 1em 0 .5em;
 }
@@ -205,12 +116,12 @@ table {
 	tr { vertical-align: top }
 		th, td { padding: 2px; vertical-align:top }
 
-:selection,::-webkit-selection {
-	background:#f094b7;
+::selection,::-webkit-selection {
+	background:@red;
 	color:#FFF;
 }
 ::-moz-selection {
-	background:#f094b7;
+	background:@red;
 	color:#FFF;
 }
 
@@ -241,7 +152,7 @@ body:hover .hide button {
 	.skip { 
 		margin: 0;
 		a {
-			background-color: #388400;
+			background-color: @red;
 			color: #FFF; 
 			font-size:.7692em;
 			left: -9999em; top: 0; 
@@ -266,8 +177,7 @@ body:hover .hide button {
 	[role=banner] ul { 
 		li { }
 			a { text-decoration: none }
-			a:visited { color: #013A6F }
-			a:hover, a:focus, a:active, .active { color: #C00 }
+			a:hover, a:focus, a:active, .active { color: @hover }
 	}
 
 	.aux-nav {
@@ -292,7 +202,7 @@ img.centre {
 
 /* Contact */
 .map {
-	border: 1px solid #999;
+	border: 1px solid @grayLight;
 	display: inline;
 	float: right;
 	height: 300px;
@@ -321,8 +231,8 @@ form {
 }
 
 	fieldset {
-		background-color: #F7FBFF;
-		border: 2px solid #B1D6FF;
+		background-color: #FFF;
+		border: 2px solid @head;
 		margin-top: 2em;
 		padding: 4em 10px 10px 0;
 		position: relative;
@@ -335,11 +245,11 @@ form {
 			*margin-left: -7px;
 			padding: 0;
 			span {
-				color: #00398D;
+				color: @head;
 				font-size:1.2308em;
 				font-weight: bold;
 				left: 10px;
-				letter-spacing: 2px
+				letter-spacing: 2px;
 				margin: 10px 0 1em 0;
 				position: absolute;
 				text-transform: uppercase
@@ -377,7 +287,7 @@ form {
 		}
 
 		input, textarea, select { 
-			border: 1px solid #CCC;
+			border: 1px solid @grayLight;
 			margin-bottom: .5em;
 			width: 300px
 		}
@@ -387,14 +297,10 @@ form {
 			vertical-align: top;
 		}
 
-		input::-webkit-input-placeholder, input:-moz-placeholder { color: #626262 }
 
 		input[type="radio"], input[type="checkbox"] {
 			border:0;
-			-webkit-box-sizing: border-box;
-	   		-moz-box-sizing: border-box;
-		 	-o-box-sizing: border-box;
-			box-sizing: border-box;
+			.box-sizing;
 			margin:0 5px 0 0;
 			padding:0;
 			width:auto;
@@ -408,23 +314,21 @@ form {
 
 		input[type="search"] {
 			-webkit-appearance: textfield;
-			-moz-box-sizing: content-box;
-			-webkit-box-sizing: content-box;
-			box-sizing: content-box;
+			.box-sizing(content-box);
 		}
 		
 		input[type="search"]::-webkit-search-decoration { -webkit-appearance: none }
 		
-		button::-moz-focus-inner,input::-moz-focus-inner {
-			border: 0;
-			padding: 0;
-		}
 
 		button {
 			.button;
 			position:relative;
 			left:6.5em;
 		    -webkit-appearance: button;
+		}
+		button::-moz-focus-inner,input::-moz-focus-inner {
+			border: 0;
+			padding: 0;
 		}
 
 		label.error {
@@ -438,17 +342,16 @@ form {
 		
 		
 		/* Placeholder styles */
+		input::-webkit-input-placeholder, input:-moz-placeholder { color: @grayLight }
 		[placeholder]{
 			cursor:pointer;
-			color:#999;
+			color:@grayLight;
 		}
 		[placeholder]:active,[placeholder]:focus {
 			cursor:text;
-			color:#333;
+			color:@gray;
 			border:1px solid #0a0;
-			-moz-box-shadow:0 0 5px #0a0, 0 0 5px rgba(0,0,0,0.25) inset;
-			-webkit-box-shadow:0 0 5px #0a0, 0 0 5px rgba(0,0,0,0.25) inset;
-			box-shadow:0 0 5px #0a0, 0 0 5px rgba(0,0,0,0.25) inset;
+			.box-shadow(0 0 5px #0a0, 0 0 5px rgba(0,0,0,0.25) inset);
 		}
 
 /*------ sidebar ------*/

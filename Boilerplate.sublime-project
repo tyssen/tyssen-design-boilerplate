@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"a"
+			],
+			[
+				"sup",
+				"sup"
+			],
+			[
+				"c",
+				"c: color"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"font",
+				"font: font: style variant weight size/line-height font-family"
+			],
+			[
+				"drop",
+				"drop: dropdown"
+			],
+			[
+				"form",
+				"form: exp:freeform:form"
+			],
+			[
+				"p",
+				"p: padding"
+			],
+			[
+				"m",
+				"m: margin"
+			],
+			[
+				"entries",
+				"entries: exp:channel:entries"
+			],
+			[
+				"seg2cat",
+				"seg2cat: seg2cat"
+			],
+			[
+				"background",
+				"background: background-color: hex"
+			],
+			[
+				"display",
+				"display: display: block"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
 				"do",
 				"description"
 			],
@@ -18,22 +74,94 @@
 			[
 				"role",
 				"role: role - banner"
-			],
-			[
-				"background",
-				"background: background-image: url"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/GGS.less",
+			"settings":
+			{
+				"buffer_size": 6380,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/master.less",
+			"settings":
+			{
+				"buffer_size": 7591,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/preboot.less",
+			"settings":
+			{
+				"buffer_size": 11965,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 45,
+		"height": 330,
 		"selected_items":
 		[
+			[
+				"syntax h",
+				"Set Syntax: HTML Zen"
+			],
+			[
+				"table",
+				"Snippet: table +"
+			],
+			[
+				"syn ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"box",
+				"Snippet: BoxShadow"
+			],
+			[
+				"ts",
+				"Snippet: text-shadow:"
+			],
+			[
+				"rd",
+				"Snippet: RoundCorners"
+			],
+			[
+				"syn",
+				"Set Syntax: CSS"
+			],
+			[
+				"express",
+				"Set Syntax: ExpressionEngine"
+			],
+			[
+				"expres",
+				"Set Syntax: ExpressionEngine"
+			],
+			[
+				"ba",
+				"Snippet: background: color image repeat attachment position"
+			],
+			[
+				"di",
+				"Snippet: display: block"
+			],
+			[
+				"sy",
+				"Set Syntax: CSS"
+			],
 			[
 				"syntax css",
 				"Set Syntax: CSS"
@@ -63,7 +191,7 @@
 				"Set Syntax: CSS"
 			]
 		],
-		"width": 392
+		"width": 575
 	},
 	"console":
 	{
@@ -79,22 +207,29 @@
 	},
 	"file_history":
 	[
+		"/Users/tyssen/Desktop/frameworks.html",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/preboot.less",
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/type.less",
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/GGS.css",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/bootstrap.less",
+		"/Users/tyssen/Documents/Tyssen Design/4. Client work/2. Ant Design/Absolute Timber Floorings/assets/templates/default_site/site.group/index.html",
+		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/scaffolding.less",
 		"/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/js/site.js",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/assets/css/master.less",
-		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
-		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/assets/css/master.css",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/admin.php",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/config.php",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/index.html",
 		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/public_html/index.php",
-		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/index.html",
-		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
-		"/Users/tyssen/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings"
+		"/Users/tyssen/Documents/Tyssen Design/Testing/ee2/server/index.html"
 	],
 	"find":
 	{
-		"height": 0
+		"height": 33
 	},
 	"find_in_files":
 	{
@@ -111,13 +246,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"</td",
+			"<td",
+			"@startColor, @endColor @height);",
+			"@startColor, @endColor);",
+			"// The standard",
+			" // Opera 11.10",
+			" // Safari 5.1+, Chrome 10+",
+			" // IE10",
+			" // FF IE10",
+			" // FF 3.6+",
+			" // Konqueror",
+			"radio",
+			"button"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"</th",
+			"<th scope=\"row\"",
+			"@startColor 0, @endColor @height);",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -135,8 +287,91 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/GGS.less",
+					"settings":
+					{
+						"buffer_size": 6380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2556,
+								2556
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/master.less",
+					"settings":
+					{
+						"buffer_size": 7591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/Syntaxes/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/tyssen/Documents/Tyssen Design/Boilerplate/assets/css/bootstrap/preboot.less",
+					"settings":
+					{
+						"buffer_size": 11965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2175,
+								2204
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/Syntaxes/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -173,7 +408,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0
+		"height": 62
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -195,6 +430,6 @@
 	"show_minimap": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 227,
+	"side_bar_width": 204,
 	"status_bar_visible": true
 }
