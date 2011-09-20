@@ -1,4 +1,4 @@
-@import "../bootstrap/preboot.less";
+@import "bootstrap/preboot.less";
 
 @media screen {
 
@@ -13,12 +13,12 @@ html {
 body {
 	background: @bg url(http://griddle.it/960-12-20?color=FFE5E5&num=false) repeat-y center;
 	color: @body;
-	.default(normal, 100%, 1.5)
+	#font > .default(normal, 100%, 1.5);
 	margin: 0
 }
 
 	#wrap {
-		font-size: .8125em;
+		font-size: 81.25%;
 		margin: 0 auto;
 		padding: 0;
 		width: 960px;
@@ -60,21 +60,17 @@ a:hover, a:focus, a:active { color: @hover; text-decoration: underline }
 a:focus { outline: thin dotted }
 a:active { outline: none }
 a,button { 
-	.transition(background .3s ease, color 0.2s linear)
+	.transition()
 }
 h1, h2, h3 { 
 	color:@head;
-	line-height: 1.2;
-	margin: 1em 0 .5em;
 }
 h1 { 
-	font-size: 2.7692; 
-	line-height: 1;
-	margin: 0 0 .8em
+	.font(36,48);
 }
-h2 { font-size: 1.8457em }
-h3 { font-size: 1.3846em }
-h4 { font-size: 1.2308em }
+h2 { .font(24,24); }
+h3 { .font(18,24); }
+h4 { .font(16,24); }
 p { line-height: 1.5; margin: 0 0 1em }
 p, li {
 	-webkit-hyphens: auto;

@@ -6,25 +6,26 @@
 // VARIABLES
 // ---------
 
-@line: 24;
+@defaultlineheight: 24;
 @column: 100% / 18;
-/*@font-size: 16;
-@em:@font-size*1em;*/
+@defaultfontsize: 16;
 
-// Font sizing
-@fontsize: 16;
-@lineheight: @fontsize*1.5;
-@margin: 1.5;
+.font(@fontsize:16,@lineheight:24,@multiplier:1,@lineheightreducer:1) {
+	font-size: (@fontsize/@defaultfontsize)*1em;
+	line-height: @lineheight/@fontsize/@lineheightreducer;
+	margin: (@lineheight/@fontsize*(@multiplier/(@lineheight/@defaultlineheight)))*1em 0 0;
+}
 
-.font(@f:16,@lh:24,@m:1) {
-	font-size: @f*1em;
-	line-height: @lh/@f;
-	margin: @lh/@f*1em 0 0;
+.boxes(@bordertop:0,@borderbottom:0,@paddingtop:1,@paddingbottom:1) {
+	border-top-width: @bordertop*1px;
+	border-bottom-width: @borderbottom*1px;
+	padding-top: (((@paddingtop*@defaultlineheight)-@bordertop)/@defaultfontsize)*1em;
+	padding-bottom: (((@paddingbottom*@defaultlineheight)-@borderbottom)/@defaultfontsize)*1em;
 }
 
 // Links
 @link:         #0069d6;
-@Hover:        darken(@link, 10);
+@hover:        darken(@link, 10);
 
 // Grays
 @black:             #000;
@@ -35,7 +36,7 @@
 @white:             #fff;
 
 // Colors
-@bg:                #DFE6E9;
+@bg:                #F5F445;
 @body:              #333;
 @head:              #2D3435;
 
@@ -71,7 +72,7 @@
 // ------
 
 // Clearfix for clearing floats like a boss
-.clearfix {
+.clearfix() {
 	zoom: 1;
 	&:after {
 		display: block;
@@ -104,8 +105,28 @@
 
 }
 
+// Generated content images
+.gci(@rect,@left,@top,@img:sprite,@pos:before) {
+	&:before {
+		clip: rect(@rect);
+		content: url('../img/@{img}.png');
+		position:absolute;
+		left:@left;top:@top;
+	}
+}
+
+// Inline-block
+.ib(@va) {
+		display: -moz-inline-stack;
+		display: inline-block;
+		*display: inline !important;
+		position: relative;
+		vertical-align: @va;
+		zoom: 1;
+}
+
 // Center-align a block level element
-.center-block {
+.center-block() {
 	display: block;
 	margin: 0 auto;
 }
@@ -131,27 +152,31 @@
 
 // Font Stacks
 #font {
-	.shorthand(@weight: normal, @size: 13px, @lineHeight: 1.5) {
+	.shorthand(@weight: normal, @size: 13px, @line: 1.5) {
 		font-size: @size;
 		font-weight: @weight;
-		line-height: @lineHeight;
+		line-height: @line;
 	}
-	.default(@weight: normal, @size: 13px, @lineHeight: 1.5) {
-		font: @weight @size/@lineHeight "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+	.default(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+			line-height: @line;
 	}
-	.sans-serif(@weight: normal, @size: 13px, @lineHeight: 1.5) {
-		font: @weight @size/@lineHeight "Helvetica Neue", Helvetica, Arial, sans-serif;
+	.sans-serif(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Helvetica Neue", Helvetica, Arial, sans-serif;
+		line-height: @line;
 	}
-	.serif(@weight: normal, @size: 13px, @lineHeight: 1.5) {
-		font: @weight @size/@lineHeight "Georgia", Times New Roman, Times, sans-serif;
+	.serif(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Georgia", Times New Roman, Times, sans-serif;
+		line-height: @line;
 	}
-	.monospace(@weight: normal, @size: 12px, @lineHeight: 1.5) {
-		font: @weight @size/@lineHeight "Monaco", Courier New, monospace;
+	.monospace(@weight: normal, @size: 12px, @line: 1.5) {
+		font: @weight @size "Monaco", Courier New, monospace;
+		line-height: @line;
 	}
 }
 
 // Grid System
-.container {
+.container() {
 	width: @siteWidth;
 	margin: 0 auto;
 	.clearfix();
@@ -194,7 +219,7 @@
 }
 
 // Transitions
-.transition(@transition) {
+.transition(@transition: all) {
 	-webkit-transition: @transition;
 	-o-transition: @transition;
 	-ms-transition: @transition;
@@ -269,7 +294,7 @@
 	font-size: @fontSize;
 	font-weight: @fontWeight;
 	letter-spacing: @letterSpacing;
-	line-height: @baseline;
+	line-height: @defaultlineheight;
 	padding: @padding;
 	position: relative;
 	text-shadow: @textShadow;
