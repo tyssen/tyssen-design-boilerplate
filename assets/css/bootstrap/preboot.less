@@ -294,7 +294,7 @@
 	font-size: @fontSize;
 	font-weight: @fontWeight;
 	letter-spacing: @letterSpacing;
-	line-height: @defaultlineheight;
+	line-height: 1;
 	padding: @padding;
 	position: relative;
 	text-shadow: @textShadow;
@@ -322,8 +322,10 @@
 
 // Gradients
 #gradient {
-	.horizontal (@startColor: #555, @endColor: #333) {
-		background-color: @endColor;
+	.horizontal (@startColor: #555, @endColor: #333, @background: 'set to start') {
+		@s: @startColor;
+  		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-y;
 		background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
 		background-image: -moz-linear-gradient(left, @startColor 0, @endColor @height);
@@ -334,8 +336,10 @@
 		background-image: linear-gradient(left, @startColor 0, @endColor @height);
 		 -pie-background: linear-gradient(left, @startColor 0, @endColor @height);
 	}
-	.vertical (@startColor: #555, @endColor: #333) {
-		background-color: @endColor;
+	.vertical (@startColor: #555, @endColor: #333, @background: 'set to start') {
+		@s: @startColor;
+  		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-x;
 		background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
 		background-image: -moz-linear-gradient(top, @startColor 0, @endColor @height);
@@ -346,8 +350,10 @@
 		background-image: linear-gradient(top, @startColor 0, @endColor @height); 
 		 -pie-background: linear-gradient(top, @startColor 0, @endColor @height);
 	}
-	.directional (@startColor: #555, @endColor: #333, @deg: 45deg) {
-		background-color: @endColor;
+	.directional (@startColor: #555, @endColor: #333, @deg: 45deg, @background: 'set to start') {
+		@s: @startColor;
+  		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-x;
 		background-image: -moz-linear-gradient(@deg, @startColor 0, @endColor @height);
 		background-image: -ms-linear-gradient(@deg, @startColor 0, @endColor @height);
@@ -355,8 +361,10 @@
 		background-image: -o-linear-gradient(@deg, @startColor 0, @endColor @height);
 		background-image: linear-gradient(@deg, @startColor 0, @endColor @height); 
 	}
-	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
-		background-color: @endColor;
+	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f, @background: 'set to start') {
+		@s: @startColor;
+  		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: no-repeat;
 		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
 		background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
