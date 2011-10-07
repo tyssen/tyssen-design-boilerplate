@@ -213,7 +213,12 @@
 	-moz-box-shadow: @shadow;
 	box-shadow: @shadow;
 }
-
+.double-box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25),@shadow2: 0 1px 3px rgba(0,0,0,.25)) {
+	-webkit-box-shadow: @shadow,@shadow2;
+	-o-box-shadow: @shadow,@shadow2;
+	-moz-box-shadow: @shadow,@shadow2;
+	box-shadow: @shadow,@shadow2;
+}
 .text-shadow(@textshadow:1px 2px 1px rgba(88, 14, 5, 1)) {
 	text-shadow: @textshadow;
 }
@@ -273,7 +278,6 @@
 		@m21: @sin;
 		@m22: @cos;
 
-
 		filter: e(%("progid:DXImageTransform.Microsoft.Matrix(M11=%d, M12=%d,M21=%d, M22=%d, sizingMethod='auto expand')", @m11,@m12,@m21,@m22));
 		zoom: 1;
 
@@ -301,12 +305,34 @@
 	text-transform: uppercase;
 	vertical-align: middle;
 	&:hover, &:focus, &:active {
-		background-position: 0 -15px;
+		#gradient > .vertical-three-colors(@color, darken(@color, 5%), 0.25, darken(@color, 20%));
 		color: @textColor;
 		text-decoration: none;
 	}
 	&:active { bottom:-2px;left:@left }
 	behavior: url(/assets/js/PIE.htc)
+}
+
+.textbutton(@color: #8f1f08, @hover: #800000) {
+	border:0;
+	overflow:visible;
+	margin:0;
+	padding:0;
+	color: @color;
+	background:transparent;
+	font:inherit;
+	line-height:normal;
+	text-decoration:underline;
+	cursor:pointer;
+	-moz-user-select:text;
+	&:hover,&:focus {
+		color: @hover;
+		background-color:#e3e0d1;
+	}
+	&:-moz-focus-inner {
+		padding:0;
+		border:0;
+	}
 }
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
@@ -322,9 +348,9 @@
 
 // Gradients
 #gradient {
-	.horizontal (@startColor: #555, @endColor: #333, @background: 'set to start') {
+	.horizontal (@startColor: #555, @endColor: #333, @height: 100%, @background: 'set to start') {
 		@s: @startColor;
-  		@b: @background;
+		@b: @background;
 		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-y;
 		background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
@@ -336,9 +362,9 @@
 		background-image: linear-gradient(left, @startColor 0, @endColor @height);
 		 -pie-background: linear-gradient(left, @startColor 0, @endColor @height);
 	}
-	.vertical (@startColor: #555, @endColor: #333, @background: 'set to start') {
+	.vertical (@startColor: #555, @endColor: #333, @height: 100%, @background: 'set to start') {
 		@s: @startColor;
-  		@b: @background;
+		@b: @background;
 		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-x;
 		background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
@@ -350,9 +376,9 @@
 		background-image: linear-gradient(top, @startColor 0, @endColor @height); 
 		 -pie-background: linear-gradient(top, @startColor 0, @endColor @height);
 	}
-	.directional (@startColor: #555, @endColor: #333, @deg: 45deg, @background: 'set to start') {
+	.directional (@startColor: #555, @endColor: #333, @deg: 45deg, @height: 100%, @background: 'set to start') {
 		@s: @startColor;
-  		@b: @background;
+		@b: @background;
 		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: repeat-x;
 		background-image: -moz-linear-gradient(@deg, @startColor 0, @endColor @height);
@@ -361,9 +387,9 @@
 		background-image: -o-linear-gradient(@deg, @startColor 0, @endColor @height);
 		background-image: linear-gradient(@deg, @startColor 0, @endColor @height); 
 	}
-	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f, @background: 'set to start') {
+	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f, @height: 100%, @background: 'set to start') {
 		@s: @startColor;
-  		@b: @background;
+		@b: @background;
 		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
 		background-repeat: no-repeat;
 		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
