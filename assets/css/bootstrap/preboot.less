@@ -224,12 +224,12 @@
 }
 
 // Transitions
-.transition(@transition: all) {
-	-webkit-transition: @transition;
-	-o-transition: @transition;
-	-ms-transition: @transition;
-	-moz-transition: @transition;
-	transition: @transition;
+.transition(@transition: color, @time: .5s, @type: linear) {
+	-webkit-transition: @transition @time @type;
+	-o-transition: @transition @time @type;
+	-ms-transition: @transition @time @type;
+	-moz-transition: @transition @time @type;
+	transition: @transition @time @type;
 }
 
 // Background clipping
