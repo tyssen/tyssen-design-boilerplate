@@ -144,6 +144,11 @@ body:hover .hide button {
 /*------ header ------*/
 [role=banner] { 
 	position: relative;
+	ul { 
+		li { }
+			a { text-decoration: none }
+			a:hover, a:focus, a:active, .active { color: @hover }
+	}
 }
 	.skip { 
 		margin: 0;
@@ -170,17 +175,8 @@ body:hover .hide button {
 
 	.slogan { margin: 0 }
 
-	[role=banner] ul { 
-		li { }
-			a { text-decoration: none }
-			a:hover, a:focus, a:active, .active { color: @hover }
-	}
-
-	.aux-nav {
-		li { }
-	}
-
 /*------ content ------*/
+
 .img-r { 
 	float: right;
 	margin: .5em 0 1em 15px;
@@ -197,6 +193,7 @@ img.centre {
 }
 
 /* Contact */
+
 .map {
 	border: 1px solid @grayLight;
 	display: inline;
@@ -216,6 +213,7 @@ img.centre {
 }
 
 /* forms */
+
 form {
 	img {
 		border: 0;
@@ -338,6 +336,7 @@ form {
 		
 		
 		/* Placeholder styles */
+		
 		input::-webkit-input-placeholder, input:-moz-placeholder { color: @grayLight }
 		[placeholder]{
 			cursor:pointer;
