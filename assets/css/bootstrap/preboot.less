@@ -303,6 +303,12 @@
 	position: relative;
 	text-shadow: @textShadow;
 	text-transform: uppercase;
+	-moz-user-drag: -moz-none;
+    -webkit-user-drag: none;
+    user-drag: none;
+	-moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
 	vertical-align: middle;
 	&:hover, &:focus, &:active {
 		#gradient > .vertical-three-colors(@color, darken(@color, 5%), 0.25, darken(@color, 20%));
