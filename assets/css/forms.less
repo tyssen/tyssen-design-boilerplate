@@ -1,0 +1,136 @@
+.forms() {
+	form {
+		img {
+			border: 0;
+			float: none; 
+			margin: 0; 
+			padding: 0
+		}
+		p { margin-top: 1em }
+	}
+
+		fieldset {
+			background-color: #FFF;
+			border: 2px solid @head;
+			margin-top: 2em;
+			padding: 4em 10px 10px 0;
+			position: relative;
+			width: 330px
+		}
+
+			fieldset * { margin-left: 10px }
+
+			legend {
+				*margin-left: -7px;
+				padding: 0;
+				span {
+					color: @head;
+					font-size:1.2308em;
+					font-weight: bold;
+					left: 10px;
+					letter-spacing: 2px;
+					margin: 10px 0 1em 0;
+					position: absolute;
+					text-transform: uppercase
+				}
+			}
+			.ie6, .ie7 { legend { margin-left: -7px } }
+
+			label, button { cursor: pointer }
+
+			label {
+				display: block;
+				font-weight: bold;
+				float: left;
+				margin-bottom: .2em;
+				width: 7em
+			}
+
+			button, input, select, textarea {
+				font-size:1em;
+				margin: 0;
+				vertical-align: baseline;
+				*vertical-align: middle;
+			}
+
+			button,input {
+				line-height: normal;
+				*overflow: visible;
+			}
+
+			select, input, textarea, button { font-family: sans-serif }
+
+			input, textarea {
+				font-size: 14px;
+				padding: 2px 4px;
+			}
+
+			input, textarea, select { 
+				border: 1px solid @grayLight;
+				margin-bottom: .5em;
+				width: 300px
+			}
+			
+			textarea {
+				overflow: auto;
+				vertical-align: top;
+			}
+
+
+			input[type="radio"], input[type="checkbox"] {
+				border:0;
+				.box-sizing;
+				margin:0 5px 0 0;
+				padding:0;
+				width:auto;
+			}
+
+			input[type="radio"] { vertical-align: text-bottom }
+			input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline }
+
+			input:hover, input:hover, textarea:hover, 
+			input:focus, input:focus, textarea:focus { background-color: #EAF1FF }
+
+			input[type="search"] {
+				-webkit-appearance: textfield;
+				.box-sizing(content-box);
+			}
+			
+			input[type="search"]::-webkit-search-decoration { -webkit-appearance: none }
+			
+
+			button {
+				.button;
+				position:relative;
+				left:6.5em;
+			    -webkit-appearance: button;
+			}
+			button::-moz-focus-inner,input::-moz-focus-inner {
+				border: 0;
+				padding: 0;
+			}
+
+			label.error {
+				color: #C00;
+				display: block;
+				float: none;
+				margin-left: 7em;
+				width: auto
+			}
+			input.error, input.error, textarea.error { border-color: #C00 }
+			
+			
+			/* Placeholder styles */
+			
+			input::-webkit-input-placeholder, input:-moz-placeholder { color: @grayLight }
+			[placeholder]{
+				cursor:pointer;
+				color:@grayLight;
+			}
+			[placeholder]:active,[placeholder]:focus {
+				cursor:text;
+				color:@gray;
+				border:1px solid #0a0;
+				.box-shadow(0 0 5px #0a0, 0 0 5px rgba(0,0,0,0.25) inset);
+			}
+}
