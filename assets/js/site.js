@@ -50,25 +50,11 @@ head.ready(function() {
 		autoArrows: false
 	});
 	
-	if($('body').is('.home')) {
-		$('.nivoSlider').nivoSlider({
-			effect:'fade',
-			animSpeed:1000,
-			pauseTime:10000,
-			keyboardNav:true,
-			captionOpacity:0.8
-		});
-	}
-
 	if($('body').is('.contact')) {
 		$("#contact").validate();
 	}
-	
-	if($('body').is('.gallery')) {
-		$(".photos a").fancybox();
-	}
-	
+		
 	window.jQuery || document.write('<script src="/assets/js/jquery-1.7.min.js">\x3C/script>')
 });
 
-head.js("http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js","/min/f=/assets/js/modernizr-2.0.min.js,/assets/js/respond.min.js,/assets/js/jquery.preload-5.js,/assets/js/hoverIntent.js,/assets/js/superfish.js,/assets/js/nivo.js,/assets/js/jquery.fancybox.js&20110519","http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.pack.js");
+head.js("http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js","/min/f=/assets/js/modernizr-2.0.min.js,/assets/js/respond.min.js,/assets/js/jquery.preload-5.js,/assets/js/hoverIntent.js,/assets/js/superfish.js,/assets/js/ios-orientationchange-fix.js","http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.pack.js");
