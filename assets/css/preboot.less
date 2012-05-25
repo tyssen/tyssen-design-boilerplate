@@ -285,8 +285,8 @@
 
 // Buttons
 .button(@color: #fff, @padding: .4em 10px, @textColor: #333, @textShadow: 0 1px 1px rgba(255,255,255,.75), @fontSize: 1.0769em, @borderColor: rgba(0,0,0,.1), @borderRadius: 4px, @fontWeight: bold, @letterSpacing: 1px) {
-	#gradient > .vertical(@color, darken(@color, 20%), 100%);
 	#gradient > .vertical-three-colors(@color, @color, 0.25, darken(@color, 10%));
+	-pie-background: linear-gradient(left, @color 0, darken(@color, 10%) 100%);
 	border: 1px solid @color;
 	border: 1px solid @borderColor;
 	border-bottom-color: fadein(@borderColor, 15%);
@@ -314,6 +314,7 @@
 	vertical-align: middle;
 	&:hover, &:focus, &:active {
 		#gradient > .vertical-three-colors(@color, darken(@color, 5%), 0.25, darken(@color, 20%));
+		-pie-background: linear-gradient(left, @color 5%, darken(@color, 20%) 100%);
 		color: @textColor;
 		text-decoration: none;
 	}
