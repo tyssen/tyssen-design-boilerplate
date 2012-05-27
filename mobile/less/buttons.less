@@ -1,0 +1,62 @@
+/* Buttons =================================================== */
+
+// Buttons
+.button(@color: #fff, @padding: .4em 10px, @textColor: #333, @textShadow: 0 1px 1px rgba(255,255,255,.75), @fontSize: 1.0769em, @borderColor: rgba(0,0,0,.1), @borderRadius: 4px, @fontWeight: bold, @letterSpacing: 1px) {
+	#gradient > .vertical-three-colors(@color, @color, 0.25, darken(@color, 10%));
+	-pie-background: linear-gradient(left, @color 0, darken(@color, 10%) 100%);
+	border: 1px solid @color;
+	border: 1px solid @borderColor;
+	border-bottom-color: fadein(@borderColor, 15%);
+	.border-radius(@borderRadius);
+	@shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	.box-shadow(@shadow);
+	color: @textColor;
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline !important;
+	font-size: @fontSize;
+	font-weight: @fontWeight;
+	letter-spacing: @letterSpacing;
+	line-height: 1;
+	padding: @padding;
+	position: relative;
+	text-shadow: @textShadow;
+	text-transform: uppercase;
+	-moz-user-drag: -moz-none;
+    -webkit-user-drag: none;
+    user-drag: none;
+	-moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+	vertical-align: middle;
+	&:hover, &:focus, &:active {
+		#gradient > .vertical-three-colors(@color, darken(@color, 5%), 0.25, darken(@color, 20%));
+		-pie-background: linear-gradient(left, @color 5%, darken(@color, 20%) 100%);
+		color: @textColor;
+		text-decoration: none;
+	}
+	&:active { bottom:-2px }
+	behavior: url(/assets/js/PIE.htc)
+}
+
+.textbutton(@color: #8f1f08, @hover: #800000) {
+	border:0;
+	overflow:visible;
+	margin:0;
+	padding:0;
+	color: @color;
+	background:transparent;
+	font:inherit;
+	line-height:normal;
+	text-decoration:underline;
+	cursor:pointer;
+	-moz-user-select:text;
+	&:hover,&:focus {
+		color: @hover;
+		background-color:#e3e0d1;
+	}
+	&:-moz-focus-inner {
+		padding:0;
+		border:0;
+	}
+}

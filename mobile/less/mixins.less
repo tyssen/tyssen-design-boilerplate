@@ -1,0 +1,308 @@
+// 1. TYPOGRAPHY 			==============================
+
+// Font sizing
+.font(@fontsize:16,@lineheight:24,@multiplier:1,@lineheightreducer:1) {
+	font-size: (@fontsize/@defaultfontsize)*1em;
+	line-height: @lineheight/@fontsize/@lineheightreducer;
+	margin: (@lineheight/@fontsize*(@multiplier/(@lineheight/@defaultlineheight)))*1em 0 0;
+}
+
+.boxes(@bordertop:0,@borderbottom:0,@paddingtop:1,@paddingbottom:1) {
+	border-top-width: @bordertop*1px;
+	border-bottom-width: @borderbottom*1px;
+	padding-top: (((@paddingtop*@defaultlineheight)-@bordertop)/@defaultfontsize)*1em;
+	padding-bottom: (((@paddingbottom*@defaultlineheight)-@borderbottom)/@defaultfontsize)*1em;
+}
+
+// Font Stacks
+#font {
+	.shorthand(@weight: normal, @size: 13px, @line: 1.5) {
+		font-size: @size;
+		font-weight: @weight;
+		line-height: @line;
+	}
+	.default(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+			line-height: @line;
+	}
+	.sans-serif(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Helvetica Neue", Helvetica, Arial, sans-serif;
+		line-height: @line;
+	}
+	.serif(@weight: normal, @size: 13px, @line: 1.5) {
+		font: @weight @size "Georgia", Times New Roman, Times, sans-serif;
+		line-height: @line;
+	}
+	.monospace(@weight: normal, @size: 12px, @line: 1.5) {
+		font: @weight @size "Monaco", Courier New, monospace;
+		line-height: @line;
+	}
+}
+
+.list() {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+// 2. COLOUR  			    ==============================
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#translucent {
+	.background(@color: @white, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+	.border(@color: @white, @alpha: 1) {
+		border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+		background-clip: padding-box;
+	}
+}
+
+// Gradients
+#gradient {
+	.horizontal (@startColor: #555, @endColor: #333, @height: 100%, @background: 'set to start') {
+		@s: @startColor;
+		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
+		background-repeat: repeat-y;
+		background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+		background-image: -moz-linear-gradient(left, @startColor 0, @endColor @height);
+		background-image: -ms-linear-gradient(left, @startColor 0, @endColor @height);
+		background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(100%, @endColor));
+		background-image: -webkit-linear-gradient(left, @startColor 0, @endColor @height);
+		background-image: -o-linear-gradient(left, @startColor 0, @endColor @height);
+		background-image: linear-gradient(left, @startColor 0, @endColor @height);
+		 -pie-background: linear-gradient(left, @startColor 0, @endColor @height);
+	}
+	.vertical (@startColor: #555, @endColor: #333, @height: 100%, @background: 'set to start') {
+		@s: @startColor;
+		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
+		background-repeat: repeat-x;
+		background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+		background-image: -moz-linear-gradient(top, @startColor 0, @endColor @height);
+		background-image: -ms-linear-gradient(top, @startColor 0, @endColor @height);
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor));
+		background-image: -webkit-linear-gradient(top, @startColor 0, @endColor @height);
+		background-image: -o-linear-gradient(top, @startColor 0, @endColor @height);
+		background-image: linear-gradient(top, @startColor 0, @endColor @height); 
+		 -pie-background: linear-gradient(top, @startColor 0, @endColor @height);
+	}
+	.directional (@startColor: #555, @endColor: #333, @deg: 45deg, @height: 100%, @background: 'set to start') {
+		@s: @startColor;
+		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
+		background-repeat: repeat-x;
+		background-image: -moz-linear-gradient(@deg, @startColor 0, @endColor @height);
+		background-image: -ms-linear-gradient(@deg, @startColor 0, @endColor @height);
+		background-image: -webkit-linear-gradient(@deg, @startColor 0, @endColor @height);
+		background-image: -o-linear-gradient(@deg, @startColor 0, @endColor @height);
+		background-image: linear-gradient(@deg, @startColor 0, @endColor @height); 
+	}
+	.vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f, @height: 100%, @background: 'set to start') {
+		@s: @startColor;
+		@b: @background;
+		background-color: ~`(this.b.toJS() == "'set to start'")?this.s.toJS():this.b.toJS()`;
+		background-repeat: no-repeat;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+		background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
+		background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+		background-image: -ms-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+		background-image: -o-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+		background-image: linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+	}
+}
+
+.rgba(@red: 0, @blue: 0, @green: 0, @opacity: .25) {
+	background-color: rgb(@red, @blue, @green); 
+	background-color: rgba(@red, @blue, @green, @opacity);  /* FF3+, Saf3+, Opera 10.10+, Chrome, IE9 */
+	/* IE's filter & -ms-filter need to be added seperately */
+	@redHex: ~`((Number(@{red}).toString(16).length>1)?Number(@{red}).toString(16):"0" + Number(@{red}).toString(16)).toUpperCase()`;
+	@blueHex: ~`((Number(@{blue}).toString(16).length>1)?Number(@{blue}).toString(16):"0" + Number(@{blue}).toString(16)).toUpperCase()`;
+	@greenHex: ~`((Number(@{green}).toString(16).length>1)?Number(@{green}).toString(16):"0" + Number(@{green}).toString(16)).toUpperCase()`;
+	@alpha255: ~`Math.round(@{opacity} * 255)`;
+	@alphaHex: ~`((Number(@{alpha255}).toString(16).length>1)?Number(@{alpha255}).toString(16):"0" + Number(@{alpha255}).toString(16)).toUpperCase()`;
+	filter: ~"@{alphaHex}";
+	@iehex: '#@{alphaHex}@{redHex}@{blueHex}@{greenHex}';
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d", @iehex, @iehex));
+	zoom: 1;
+}
+
+// Opacity
+.opacity(@opacity: 100) {
+	filter: e(%("alpha(opacity=%d)", @opacity));
+	-khtml-opacity: @opacity / 100;
+	-moz-opacity: @opacity / 100;
+	opacity: @opacity / 100;
+}
+
+// 3. LAYOUT 				==============================
+
+// Clearfix for clearing floats like a boss
+.clearfix() {
+	zoom: 1;
+	&:after {
+		display: block;
+		visibility: hidden;
+		height: 0;
+		clear: both;
+		content: ".";
+	}
+}
+
+// Grid System
+.container() {
+	width: @siteWidth;
+	margin: 0 auto;
+	.clearfix();
+}
+.columns(@columnSpan: 1) {
+	float: left;
+	width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
+	margin-left: @gridGutterWidth;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+.offsetMath(@extraSpace: 40px) {
+	margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) + @extraSpace !important;
+}
+.offset(@columnOffset: 1) {
+	.offsetMath(40px);
+	&:first-child {
+		.offsetMath(20px);
+	}
+}
+
+// Inline-block
+.ib(@va) {
+		display: -moz-inline-stack;
+		display: inline-block;
+		*display: inline !important;
+		position: relative;
+		vertical-align: @va;
+		zoom: 1;
+}
+
+// Center-align a block level element
+.center-block() {
+	display: block;
+	margin: 0 auto;
+}
+
+
+// 4. CSS3	 				==============================
+
+// Border Radius
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+// Drop shadows
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+	-webkit-box-shadow: @shadow;
+	-o-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.text-shadow(@textshadow:1px 2px 1px rgba(88, 14, 5, 1)) {
+	text-shadow: @textshadow;
+}
+
+// Transitions
+.transition(@transition: color, @time: .5s, @type: linear) {
+	-webkit-transition: @transition @time @type;
+	-o-transition: @transition @time @type;
+	-ms-transition: @transition @time @type;
+	-moz-transition: @transition @time @type;
+	transition: @transition @time @type;
+}
+
+// Background clipping
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+
+// Columns(250px, 0, 24px, COLOR, solid, 1px)
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #eee, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+-webkit-column-width : @colwidth;
+-webkit-column-count : @colcount;
+-webkit-column-gap : @colgap;
+-webkit-column-rule-color : @columnRuleColor;
+-webkit-column-rule-style : @columnRuleStyle;
+-webkit-column-rule-width : @columnRuleWidth;
+-moz-column-width : @colwidth;
+-moz-column-count : @colcount;
+-moz-column-gap : @colgap;
+-moz-column-rule-color : @columnRuleColor;
+-moz-column-rule-style : @columnRuleStyle;
+-moz-column-rule-width : @columnRuleWidth;
+column-width : @colwidth;
+column-count : @colcount;
+column-gap : @colgap;
+column-rule-color : @columnRuleColor;
+column-rule-style : @columnRuleStyle;
+column-rule-width : @columnRuleWidth; }
+
+// Box Sizing
+.box-sizing(@borderbox: border-box) {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// Rotate
+.rotate(@deg: -1.5) {
+		 -moz-transform: e(%("rotate(%d%d)", @deg, deg));  /* FF3.5+ */
+			 -o-transform: e(%("rotate(%d%d)", @deg, deg));  /* Opera 10.5 */
+	-webkit-transform: e(%("rotate(%d%d)", @deg, deg));  /* Saf3.1+, Chrome */
+			-ms-transform: e(%("rotate(%d%d)", @deg, deg));  /* IE9 */
+					transform: e(%("rotate(%d%d)", @deg, deg));  
+
+		/* IE's filter needs to be added seperately */
+
+		@deg2rad: 3.14159265 / 180;
+		@rad: @deg * @deg2rad;
+
+		@sin: ~`Math.sin(@{rad})`;
+		@cos: ~`Math.cos(@{rad})`;
+
+		@m11: @cos;
+		@m12: -1 * @sin;
+		@m21: @sin;
+		@m22: @cos;
+
+		filter: e(%("progid:DXImageTransform.Microsoft.Matrix(M11=%d, M12=%d,M21=%d, M22=%d, sizingMethod='auto expand')", @m11,@m12,@m21,@m22));
+		zoom: 1;
+
+}
+
+// 5. MISCELLANEOUS				==============================
+
+// Generated content images
+.gci(@rect,@left,@top,@img:sprite,@pos:before) {
+	&:before {
+		clip: rect(@rect);
+		content: url('../img/@{img}.png');
+		position:absolute;
+		left:@left;top:@top;
+	}
+}
+
+// Input placeholder text
+.placeholder(@color: @grayLight) {
+	:-moz-placeholder {
+		color: @color;
+	}
+	::-webkit-input-placeholder {
+		color: @color;
+	}
+}
+
+.pie() { behavior: url(/assets/js/PIE.htc) }
