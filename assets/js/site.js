@@ -8,6 +8,34 @@ $LAB
 
 		$.preloadCssImages();
 
+		(function($) {
+			if ("placeholder" in document.createElement("input")) return;
+
+			function setupPlaceholder(input) {
+				var placeholderText = input.attr('placeholder');
+				if (input.val() === '') input.val(placeholderText);
+				input.bind('focus blur', function(e) {
+					if (e.type === 'focus' && input.val() === placeholderText) input.val(''); 
+					if (e.type === 'blur' && input.val() === '') input.val(placeholderText); 
+				});
+			}
+
+			function clearPlaceholdersBeforeSubmit(form) {
+				form.find(':input[placeholder]').each(function() {
+					var el = $(this);
+					if (el.val() === el.attr('placeholder')) el.val('');
+				});
+			}
+		 
+			$(':input[placeholder]').each(function(index) {
+				setupPlaceholder($(this));
+			});
+		   
+			$('form').submit(function(e) {
+				clearPlaceholdersBeforeSubmit($(this));
+			});
+		})(jQuery);
+
 		// $('.sf-menu').superfish({ 
 		// 	delay: 1000,
 		// 	animation: {opacity:'show',height:'show'},
