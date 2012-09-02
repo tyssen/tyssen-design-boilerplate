@@ -1,5 +1,4 @@
 $LAB
-	.script("/assets/js/modernizr-2.5.0.min.js")
 	.script("//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js").wait()
 	.script("/assets/js/jquery.preload-5.js")
 	// .script("/assets/js/hoverIntent.js")
@@ -15,8 +14,8 @@ $LAB
 				var placeholderText = input.attr('placeholder');
 				if (input.val() === '') input.val(placeholderText);
 				input.bind('focus blur', function(e) {
-					if (e.type === 'focus' && input.val() === placeholderText) input.val(''); 
-					if (e.type === 'blur' && input.val() === '') input.val(placeholderText); 
+					if (e.type === 'focus' && input.val() === placeholderText) input.val('');
+					if (e.type === 'blur' && input.val() === '') input.val(placeholderText);
 				});
 			}
 
@@ -26,17 +25,17 @@ $LAB
 					if (el.val() === el.attr('placeholder')) el.val('');
 				});
 			}
-		 
+
 			$(':input[placeholder]').each(function(index) {
 				setupPlaceholder($(this));
 			});
-		   
+
 			$('form').submit(function(e) {
 				clearPlaceholdersBeforeSubmit($(this));
 			});
 		})(jQuery);
 
-		// $('.sf-menu').superfish({ 
+		// $('.sf-menu').superfish({
 		// 	delay: 1000,
 		// 	animation: {opacity:'show',height:'show'},
 		// 	speed: 300,
@@ -44,7 +43,7 @@ $LAB
 		// });
 
 		// Open links in new windows/tabs
-		
+
 		$('a[rel="external"]').click( function() {
 			window.open($(this).attr('href') );
 			return false;
@@ -80,8 +79,8 @@ $LAB
 			fx:      'fade',
 			speed:   2000,
 			timeout: 8000,
-			// pager:      '.pager', 
-			// pagerEvent: 'mouseover', 
+			// pager:      '.pager',
+			// pagerEvent: 'mouseover',
 			pauseOnPagerHover: true
 		});
 	})

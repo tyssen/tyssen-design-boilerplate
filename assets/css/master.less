@@ -25,17 +25,17 @@ body {
 		padding: 0;
 		width: 960px;
 	}
-	
+
 		#content {
 			clear: both;
 			overflow: hidden
 		}
-		
+
 			[role=main] {
 				float: ;
 				width: ;
 			}
-			
+
 			[role=complementary] {
 				float: ;
 				width: ;
@@ -51,23 +51,23 @@ audio[controls],canvas,video {
 	*zoom: 1;
 }
 
-a { 
-	color: @link; 
-	font-weight: bold; 
-	text-decoration: none; 
+a {
+	color: @link;
+	font-weight: bold;
+	text-decoration: none;
 	vertical-align:baseline
 }
 a:link { -webkit-tap-highlight-color: @hover }
 a:hover, a:focus, a:active { color: @hover; text-decoration: underline }
 a:focus { outline: thin dotted }
 a:active { outline: none }
-a,button { 
+a,button {
 	.transition()
 }
-h1, h2, h3 { 
+h1, h2, h3 {
 	color:@head;
 }
-h1 { 
+h1 {
 	.font(36,48);
 }
 h2 { .font(24,24); }
@@ -90,7 +90,7 @@ ol { list-style: decimal }
 dt, dd { margin:0; padding:0 }
 figure {
 	img, object, embed, video {
-		max-width: 100%; 
+		max-width: 100%;
 		display: block;
 	}
 }
@@ -109,10 +109,10 @@ blockquote { margin: 0; padding: 0 }
 		display: block;
 		text-align: right
 	}
-table { 
-	border-collapse: collapse; 
+table {
+	border-collapse: collapse;
 	border-spacing: 0;
-	font-size:inherit; font:1em 
+	font-size:inherit; font:1em
 }
 	tr { vertical-align: top }
 		th, td { padding: 2px; vertical-align:top }
@@ -126,14 +126,18 @@ table {
 	color:#FFF;
 }
 
+[hidden] {
+	display: none;
+}
+
 .hide {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
   padding:0 !important;
   border:0 !important;
-  height: 1px !important; 
-  width: 1px !important; 
+  height: 1px !important;
+  width: 1px !important;
   overflow: hidden;
 }
 body:hover .hide a,
@@ -154,26 +158,26 @@ body:hover .hide button {
     color: transparent;
 }
 
-[role=navigation] { 
+[role=navigation] {
 	.list;
 }
 
 /*------ header ------*/
-[role=banner] { 
+[role=banner] {
 	position: relative;
-	ul { 
+	ul {
 		li { }
 			a { text-decoration: none }
 			a:hover, a:focus, a:active, .active { color: @hover }
 	}
 }
-	.skip { 
+	.skip {
 		margin: 0;
 		a {
 			background-color: @red;
-			color: #FFF; 
+			color: #FFF;
 			font-size:.7692em;
-			left: -9999em; top: 0; 
+			left: -9999em; top: 0;
 			line-height: 1;
 			position: absolute;
 			padding: .3em 0;
@@ -183,7 +187,7 @@ body:hover .hide button {
 		}
 	}
 
-	.logo { 
+	.logo {
 		float: left;
 		margin: ;
 	}
@@ -194,12 +198,12 @@ body:hover .hide button {
 
 /*------ content ------*/
 
-.img-r { 
+.img-r {
 	float: right;
 	margin: .5em 0 1em 15px;
 }
 
-.img-l { 
+.img-l {
 	float: left;
 	margin: .5em 15px 1em 0;
 }
@@ -219,7 +223,7 @@ img.centre {
 	margin: 0 0 1em 15px;
 	width: 300px;
 }
-.vcard { 
+.vcard {
 	margin-bottom: 2em;
 	h3 { margin: .5em 0 0 }
 	p { margin: 0 }
@@ -246,7 +250,7 @@ img.centre {
 	margin-top: 2em;
 	padding-top: 1em;
 	position: relative;
-	text-align: center;	
+	text-align: center;
 	width: 100%
 }
 
