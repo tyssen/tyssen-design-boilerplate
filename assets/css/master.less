@@ -1,6 +1,4 @@
 @import "preboot.less";
-@import "forms.less";
-@import "print.less";
 
 @media screen {
 
@@ -13,17 +11,17 @@ html {
 }
 
 body {
-	background: @bg url(http://griddle.it/960-12-20?color=FFE5E5&num=false) repeat-y center;
+	background: @bg;
 	color: @body;
 	#font > .default(normal, 100%, 1.5);
 	margin: 0
 }
 
 	#wrap {
-		font-size: 81.25%;
+		font-size: .8125em;
 		margin: 0 auto;
 		padding: 0;
-		width: 960px;
+		width: 980px;
 	}
 
 		#content {
@@ -74,14 +72,6 @@ h2 { .font(24,24); }
 h3 { .font(18,24); }
 h4 { .font(16,24); }
 p { line-height: 1.5; margin: 1em 0 0 }
-p, li {
-	-ms-word-break: break-all;
-	word-break: break-all;
-	word-break: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
-}
 ul, ol { margin: 1em 0 0 1.5em; padding-left: 1.5em }
 li { margin-bottom: .5em }
 ul { list-style: disc }
@@ -235,7 +225,7 @@ img.centre {
 
 /* forms */
 
-.forms();
+@import "forms.less";
 
 /*------ sidebar ------*/
 [role=complementary] {
@@ -256,4 +246,4 @@ img.centre {
 
 }
 
-.print();
+@import "print.less";
