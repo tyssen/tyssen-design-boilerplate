@@ -385,6 +385,12 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # RewriteRule ^(.*)$ /index.php/$1 [L]
 # RewriteRule ^(.*)$ /index.php?$1 [L]
 
+# Basic PHP site rewrite
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.php -f
+  RewriteRule ^([^/]+)/$ $1.php
+  RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.php
+
 # RewriteRule ^(.*\.(css|js)) min/index.php?f=&debug=0 [L,NC]
 
   RewriteRule "(^|/)\." - [F]

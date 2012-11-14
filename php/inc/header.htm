@@ -1,0 +1,34 @@
+<?php
+$site_name = 'Site Name';
+?>
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title><?php if($page!='home') echo $pageTitle . ' &mdash; ' . $site_name ; if($page=='home') echo ' &mdash; '. $pageTitle;?></title>
+	<meta name="description" content="<?=$pageDescription?>">
+	<meta name="keywords" content="">
+	<meta name="geo.region" content="AU-QLD">
+	<meta name="geo.placename" content="Logan City">
+	<meta name="geo.position" content="-27.641774;153.150997">
+	<meta name="ICBM" content="-27.641774, 153.150997">
+	<!--[if lt IE 7]>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="/min/f=assets/css/master.css&amp;20110614">
+	<script src="/min/f=assets/js/LAB.min.js&amp;20110614"></script>
+</head>
+<body class="<?=$page?>">
+	<p class="skip"><a href="#content">Skip to content</a></p>
+	<div role="banner">
+		<div class="wrap">
+			<<?php if($page=='home') echo 'h1'; else echo 'div';?> class="logo"><a href="/" title="Return to the $site_name home page"></a></<?php if($page=='home') echo 'h1'; else echo 'div';?>>
+		</div>
+		<div class="menu">
+			<ul role="navigation" class="wrap">
+				<li><a<?php if ($page=="home") echo ' class="here"';?> href="/">Home</a></li>
+				<li><a<?php if ($page=="contact") echo ' class="here"';?> href="/contact/">Contact</a></li>
+			</ul>
+		</div>
+	</div>
