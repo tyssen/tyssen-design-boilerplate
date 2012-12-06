@@ -21,8 +21,11 @@
 }
 
 @import "preboot";
-@import "default";
-@import "forms";
+
+@media screen {
+	@import "default";
+	@import "forms";
+}
 
 @media print { @import "print"; }
 
