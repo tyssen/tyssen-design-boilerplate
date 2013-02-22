@@ -1,11 +1,8 @@
 $LAB
 	.script("//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js").wait()
-	.script("/assets/js/jquery.preload-5.js")
 	// .script("/assets/js/hoverIntent.js")
 	// .script("/assets/js/superfish.js")
 	.wait(function(){
-
-		$.preloadCssImages();
 
 		(function($) {
 			if ("placeholder" in document.createElement("input")) return;
