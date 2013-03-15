@@ -2,17 +2,23 @@
 <!--[if lt IE 9]><html class="no-js oldie" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+	<script>
+	  (function() {
+		var config = {
+		  kitId: 'zsg7huq',
+		  scriptTimeout: 3000
+		};
+		var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+	  })();
+	</script>
 	<meta charset="utf-8">
 	<link rel="dns-prefetch" href="//typekit.com">
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 	<link rel="dns-prefetch" href="//google-analytics.com">
-	<title>Untitled</title>
+	<title>Site name</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--[if lt IE 7]>
-		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
-	<![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="/assets/js/pie.htc"><![endif]-->
 	<link rel="stylesheet" href="assets/css/master.css?v=1">
 	<script src="assets/js/modernizr-2.6.1.min.js"></script>
@@ -21,27 +27,29 @@
 <body>
 	<div id="wrap">
 		<p class="skip"><a href="#content">Skip to content</a></p>
-		<div role="banner">
+		<header role="banner">
 			<div class="logo"><a href="{homepage}" title="Return to the {site_name} home page"></a></div>
 			<h1 class="title"></h1>
 			<p class="slogan"></p>
-			<ul role="navigation">
-			</ul>
-		</div>
+			<nav>
+				<h2 class="hide">Main navigation</h2>
+				<ul role="navigation">
+				</ul>
+			</nav>
+		</header>
 		<div id="content">
-			<div role="main">
+			<article role="main">
 
-			</div>
-			<div role="complementary">
+			</article>
+			<aside role="complementary">
 
-			</div>
+			</aside>
 		</div>
-		<div role="contentinfo">
+		<footer role="contentinfo">
 			<p>&copy; </p>
 			<p><a href="http://www.tyssendesign.com.au/" title="Link to an external site" rel="external">Website design by Tyssen Design</a>.</p>
-		</div>
+		</footer>
 	</div>
-	<script>window.jQuery || document.write('<script src="assets/js/jquery-1.7.1.min.js"><\/script>')</script>
 	<script src="assets/js/site.js"></script>
 	<!--  <script>
 		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
