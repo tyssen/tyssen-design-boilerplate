@@ -1,0 +1,62 @@
+//
+// Variables
+//
+
+$base-font-size:    16 !default;
+$base-line-height:  1.5 !default;
+$gutterwidth:       1em;
+
+// We use these to control various global styles
+$body-bg:           #4E7FAA !default;
+$body-font-color:   #333 !default;
+$body-font-family:  "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight:  normal !default;
+$body-font-style:   normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased !default;
+
+// We use these as default colors throughout
+$color1:            #5BC5D4 !default;
+$color2:            #2675B9 !default;
+$color3:            #2C3F80 !default;
+$color-alert:       #9d261d !default;
+$color-success:     #5da423 !default;
+$black:             #000;
+$grayDark:          lighten($black, 25%);
+$gray:              lighten($black, 50%);
+$grayLight:         lighten($black, 75%);
+$grayLighter:       lighten($black, 90%);
+$white:             #fff;
+
+// We use these to make sure border radius matches unless we want it different.
+$global-radius: 3px !default;
+$global-rounded: 1000px !default;
+
+// We use these to control inset shadow shiny edges and depressions.
+$shiny-edge-size: 0 1px 0 !default;
+$shiny-edge-color: rgba(#fff, .5) !default;
+$shiny-edge-active-color: rgba(#000, .2) !default;
+
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-html-classes: true !default;
+$include-print-styles: true !default;
+
+//
+// Typography Variables
+//
+
+// We use these to control header font styles
+$hd-family:                   minion-pro, $body-font-family !default;
+$hd-weight:                   bold !default;
+$hd-style:                    normal !default;
+$hd-color:                    #222 !default;
+$hd-lh:                       1.25 !default;
+$text-rendering:              optimizeLegibility !default;
+
+// We use these to style <code> tags
+$code-font-family:            Consolas, 'Liberation Mono', Courier, monospace !default;
+
+// We use these to style anchors
+$link-color:                  $color1 !default;
+$link-color-hover:            darken($color1, 25%) !default;

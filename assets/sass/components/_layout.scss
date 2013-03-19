@@ -1,17 +1,38 @@
+#wrap {
+	margin: 0 auto;
+	padding: 0;
+	width: 960px;
+}
+
+	#content {
+		clear: both;
+		overflow: hidden
+	}
+
+		[role=main] {
+			// float: ;
+			// width: ;
+		}
+
+		[role=complementary] {
+			// float: ;
+			// width: ;
+		}
+
 //------ header ------//
 
 [role=banner] {
 	position: relative;
 	ul {
+	}
 		li { }
 			a { text-decoration: none }
-			a:hover, a:focus, a:active, .active { color: $anchor-font-color-hover }
-	}
+			a:hover, a:focus, a:active, .active { color: $link-color-hover }
 }
 	.skip {
 		margin: 0;
 		a {
-			background-color: $secondary-color;
+			background-color: $color2;
 			color: #FFF;
 			font-size:.7692em;
 			left: -9999em; top: 0;
@@ -55,9 +76,9 @@
 
 //------ sidebar ------//
 
-[role=complementary] {
+// [role=complementary] {
 
-}
+// }
 
 
 //------ footer ------//

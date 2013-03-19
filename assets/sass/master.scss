@@ -1,47 +1,22 @@
-// Make sure the charset is set appropriately
 @charset "UTF-8";
 
-// This includes all of the foundation global elements that are needed to work with any of the other files.
-@import "included/foundation-global";
-
-// Foundation Components
 @import
-  "included/components/global",
-  "included/components/grid",
-  // "included/components/visibility",
-  // "included/components/block-grid",
-  "included/components/type",
-  "included/components/buttons",
-  "included/components/forms",
-  "included/components/print"
-  // "included/components/custom-forms",
-  // "included/components/button-groups",
-  // "included/components/dropdown-buttons",
-  // "included/components/split-buttons",
-  // "included/components/flex-video",
-  // "included/components/section",
-  // "included/components/top-bar",
-  // "included/components/orbit",
-  // "included/components/reveal",
-  // "included/components/joyride",
-  // "included/components/clearing",
-  // "included/components/alert-boxes",
-  // "included/components/breadcrumbs",
-  // "included/components/keystrokes",
-  // "included/components/labels",
-  // "included/components/inline-lists",
-  // "included/components/pagination",
-  // "included/components/panels",
-  // "included/components/pricing-tables",
-  // "included/components/progress-bars",
-  // "included/components/side-nav",
-  // "included/components/sub-nav",
-  // "included/components/switch",
-  // "included/components/magellan",
-  // "included/components/tables",
-  // "included/components/thumbs",
-  // "included/components/tooltips",
-  // "included/components/dropdown"
-  ;
+  "compass/css3",
+  "components/variables",
+  "components/mixins",
+  "components/mediaqueries";
 
-@import  "included/layout","included/components/pie";
+// @include font-face("fontello", font-files("/assets/font/fontello.eot?30694902", "/assets/font/fontello.woff?30694902", "/assets/font/fontello.ttf?30694902" , "/assets/font/fontello.svg?30694902"));
+
+@import
+  "components/global",
+  "components/elements",
+  "components/type",
+  "components/images",
+  "components/buttons",
+  "components/forms"
+;
+
+@import
+  "components/layout",
+  "components/print";

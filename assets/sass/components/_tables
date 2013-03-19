@@ -1,0 +1,7 @@
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size:inherit; font:1em
+}
+	tr { vertical-align: top }
+		th, td { padding: 2px; vertical-align:top }

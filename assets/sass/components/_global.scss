@@ -1,0 +1,82 @@
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+html {
+	height: 100%;
+	overflow-y: scroll;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	background: $body-bg;
+	color: $body-font-color;
+	font: $body-font-weight $body-font-style 100%/1.5 $body-font-family;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: $font-smoothing;
+}
+
+::selection,::-webkit-selection {
+	background: $color1;
+	color:#FFF;
+}
+::-moz-selection {
+	background: $color1;
+	color:#FFF;
+}
+
+// [hidden] {
+// 	display: none;
+// }
+
+.hide {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+body:hover .hide a,
+body:hover .hide input,
+body:hover .hide button {
+	display: none !important;
+}
+
+// .hide-text {
+// 	text-indent: 100%;
+// 	white-space: nowrap;
+// 	overflow: hidden;
+// }
+
+// .ir {
+// 	font: 0/0 a;
+// 	text-shadow: none;
+// 	color: transparent;
+// }
+
+[role=navigation],.nb {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+[role=navigation] {
+	li {
+		display: inline-block;
+	}
+}
+
+// .left         { float: left; }
+// .right        { float: right; }
+// .text-left    { text-align: left; }
+// .text-right   { text-align: right; }
+// .text-centre  { text-align: center; }
+// .text-justify { text-align: justify; }
+// .primary      { color: $color1; }
+// .secondary    { color: $color2; }
