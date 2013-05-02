@@ -26,3 +26,15 @@ $portrait: "only screen and (orientation: portrait)" !default;
 		@media only screen and (max-width: emCalc(320))  { @content; }
 	}
 }
+
+@mixin retina($ratio: 1.5) {
+  $dpi: $ratio * 96;
+  $opera-ratio: $ratio * 100;
+
+  @media only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),
+         only screen and (     -o-min-device-pixel-ratio: '#{$opera-ratio}/100'),
+         only screen and (                min-resolution: #{$dpi}dpi),
+         only screen and (                min-resolution: #{$ratio}dppx) {
+    @content;
+  }
+}
