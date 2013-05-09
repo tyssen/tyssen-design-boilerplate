@@ -12,10 +12,11 @@ a,button {
 	@include transition(color);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
 	color: $hd-color;
 	font-family: $hd-family;
 	font-weight: $hd-weight;
+	line-height: 1.25;
 	margin: 0;
 	text-rendering: optimizelegibility;
 	// span {
@@ -26,39 +27,31 @@ h1, h2, h3, h4 {
 
 h1, .h1 {
 	@include font-size($base-font-size * 2);
-	line-height: 1.2;
-	margin-bottom: $base-line-height / 2;
+	margin-bottom: #{$base-line-height / 2}px;
 }
 
 h2, .h2 {
-	@include font-size($base-font-size * 1.5);
-	margin-bottom: $base-line-height / 2;
-	line-height: 1.2;
+	@include font-size($base-font-size * 1.375);
+	margin-bottom: #{$base-line-height / 2}em;
 }
 
 h3, .h3 {
-	@include font-size($base-font-size * 1.3);
-	margin-bottom: $base-line-height / 1.5;
-	line-height: 1.3;
-}
-
-h4, .h4 {
 	@include font-size($base-font-size * 1.25);
-	margin-bottom: $base-line-height;
-	line-height: 1.25;
+	margin-bottom: #{$base-line-height / 1.5}em;
 }
 
 p, ol, ul, dl {
 	@include font-size($base-font-size);
-	margin-bottom: $base-line-height;
-	line-height: $base-line-height;
+	margin: 0 0 #{$base-line-height}em;
 }
 
-// small { @include font-size($base-font-size / 1.25); }
+// small {
+// 	@include font-size($base-font-size * .6875);
+// }
 
 ul, ol {
-	margin: 0 0 $base-line-height $gutterwidth;
-	padding: 0 0 0 $gutterwidth;
+	margin-left: $gutterwidth;
+	padding-left: $gutterwidth;
 }
 
 // li ul, li ol {
