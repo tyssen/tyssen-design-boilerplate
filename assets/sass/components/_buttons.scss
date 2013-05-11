@@ -233,11 +233,11 @@ $button-disabled-opacity: 0.6 !default;
 	}
 
 	// Additional styles for screens larger than 768px
-	@media #{$small} {
-		.button {
-			@include button-base($style:false, $display:inline-block);
-			@include button-size($padding:false, $full-width:false);
-		}
-	}
+	// @media #{$small} {
+	// 	.button {
+	// 		@include button-base($style:false, $display:inline-block);
+	// 		@include button-size($padding:false, $full-width:false);
+	// 	}
+	// }
 
 }
