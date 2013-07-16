@@ -109,26 +109,22 @@ h1, h2, h3 {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000328}}
 h1, .h1 {
-  font-size: 32px;
-  font-size: 3.2rem;
+  font-size: 2em;
   margin-bottom: 0.75px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000333}}
 h2, .h2 {
-  font-size: 22px;
-  font-size: 2.2rem;
+  font-size: 1.375em;
   margin-bottom: 0.75em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000338}}
 h3, .h3 {
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 1.25em;
   margin-bottom: 1em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000343}}
 p, ol, ul, dl {
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 1em;
   margin: 0 0 1.5em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000352}}
