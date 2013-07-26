@@ -60,3 +60,7 @@ $code-font-family:            Consolas, 'Liberation Mono', Courier, monospace !d
 // We use these to style anchors
 $link-color:                  $color1 !default;
 $link-color-hover:            darken($color1, 25%) !default;
+
+// Vertical rhythm
+
+$relative-font-sizing: true
