@@ -9,21 +9,16 @@ $large: "only screen and (min-width:"#{$large-screen}")" !default;
 $landscape: "only screen and (orientation: landscape)" !default;
 $portrait: "only screen and (orientation: portrait)" !default;
 
+$old-ie: false !default;
+
 @mixin breakpoint($point) {
-	@if $point == 1250 {
-		@media only screen and (max-width: emCalc(1250)) { @content; }
-	}
-	@else if $point == 980 {
-		@media only screen and (max-width: emCalc(980))  { @content; }
-	}
-	@else if $point == 800 {
-		@media only screen and (max-width: emCalc(800))  { @content; }
-	}
-	@else if $point == 600 {
-		@media only screen and (max-width: emCalc(600))  { @content; }
-	}
-	@else if $point == 320 {
-		@media only screen and (max-width: emCalc(320))  { @content; }
+	@if $point == 600 {
+		@if $old-ie {
+			@content;
+		}
+		@else {
+			@media only screen and (min-width: emCalc(600)) { @content; }
+		}
 	}
 }
 
@@ -32,9 +27,9 @@ $portrait: "only screen and (orientation: portrait)" !default;
   $opera-ratio: $ratio * 100;
 
   @media only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),
-         only screen and (     -o-min-device-pixel-ratio: '#{$opera-ratio}/100'),
-         only screen and (                min-resolution: #{$dpi}dpi),
-         only screen and (                min-resolution: #{$ratio}dppx) {
-    @content;
+		 only screen and (     -o-min-device-pixel-ratio: '#{$opera-ratio}/100'),
+		 only screen and (                min-resolution: #{$dpi}dpi),
+		 only screen and (                min-resolution: #{$ratio}dppx) {
+	@content;
   }
 }
