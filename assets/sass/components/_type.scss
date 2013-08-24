@@ -62,7 +62,7 @@ ul, ol {
 
 blockquote  {
 	font-style: normal;
-	margin: 0 0 $base-line-height 0;
+	margin: 0 0 #{$base-line-height / 1.5}em 0;
 	padding: $gutterwidth / 2;
 }
 
@@ -82,7 +82,7 @@ q:after {
 }
 
 dl, dd {
-	margin-bottom: $base-line-height;
+	margin-bottom: #{$base-line-height / 1.5}em;
 }
 
 dt {
