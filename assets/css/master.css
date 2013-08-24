@@ -131,7 +131,7 @@ ul, ol {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000363}}
 blockquote {
   font-style: normal;
-  margin: 0 0 24px 0;
+  margin: 0 0 16pxem 0;
   padding: 0.5em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000369}}
@@ -153,7 +153,7 @@ q:after {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000384}}
 dl, dd {
-  margin-bottom: 24px; }
+  margin-bottom: 16pxem; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/tyssen\/Documents\/Tyssen\%20Design\/Boilerplate\/assets\/sass\/components\/_type\.scss}line{font-family:\0000388}}
 dt {
