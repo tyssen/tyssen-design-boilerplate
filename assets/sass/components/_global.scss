@@ -80,3 +80,9 @@ body:hover .hide button {
 // .text-justify { text-align: justify; }
 // .primary      { color: $color1; }
 // .secondary    { color: $color2; }
+
+%sprites {
+	background: url(../img/sprites.png) no-repeat;
+	content: '';
+	display: inline-block;
+}
