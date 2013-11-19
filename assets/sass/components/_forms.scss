@@ -125,9 +125,10 @@ form {
 
 		// input:-moz-placeholder { color: $grayLight }
 		// input::-webkit-input-placeholder { color: $grayLight }
+		// input:-ms-input-placeholder { color: $grayLight }
 		// [placeholder]{
-		// 	cursor:pointer;
 		// 	color:$grayLight;
+		// 	cursor:pointer;
 		// }
 		// [placeholder]:active,[placeholder]:focus {
 		// 	cursor:text;
