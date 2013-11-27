@@ -1,0 +1,15 @@
+{
+  "name": "Boilerplate",
+	"version": "0.0.2",
+	"devDependencies" : {
+		"grunt" :                       "~0.4.0",
+		"grunt-contrib-cssmin":         "*",
+		"grunt-contrib-sass":           "*",
+		"grunt-contrib-compass":        "*",
+		"grunt-contrib-uglify":         "*",
+		"grunt-contrib-watch":          "*",
+		"grunt-cssc":                   "*",
+		"grunt-htmlhint":               "*",
+		"matchdep":                     "*"
+	}
+}

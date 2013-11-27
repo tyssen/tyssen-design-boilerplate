@@ -9,7 +9,7 @@ a:hover, a:focus, a:active { color: $link-color-hover; text-decoration: underlin
 a:focus { outline: thin dotted }
 a:active { outline: none }
 a,button {
-	@include transition(color);
+	@include transition(color .5s ease);
 }
 
 h1, h2, h3 {
