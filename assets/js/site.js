@@ -64,6 +64,21 @@ $LAB
 		// 	$('.header header').append('<a href="#nav" id="show-menu">Menu <span>&#x25BC;</span></a>');
 		// }
 
+		// Turn off hover effects when scrolling
+
+		var body = document.body, timer;
+
+		window.addEventListener('scroll', function() {
+			clearTimeout(timer);
+			if(!body.classList.contains('disable-hover')) {
+				body.classList.add('disable-hover')
+			}
+
+			timer = setTimeout(function(){
+				body.classList.remove('disable-hover')
+			},500);
+		}, false);
+
 	})
 	// Home
 	.script(function(){

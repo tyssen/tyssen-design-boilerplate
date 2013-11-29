@@ -19,6 +19,11 @@ body {
 	-webkit-font-smoothing: $font-smoothing;
 }
 
+.disable-hover,
+.disable-hover * {
+	pointer-events: none !important;
+}
+
 ::selection,::-webkit-selection {
 	background: $color1;
 	color:#FFF;
