@@ -33,3 +33,40 @@ $old-ie: false !default;
 	@content;
   }
 }
+
+$max-width: em(1200);
+$show_media_queries: true;
+
+@mixin media-query-helper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  padding: .5em .75em;
+  font-family: monospace;
+  font-size: 1.125em;
+  line-height: 1;
+  color: #20D832;
+  background: rgba(0,0,0,.8);
+}
+
+@if $show_media_queries == true {
+
+	$starting-at: 30em;
+	$increment-by: 5em;
+
+	$min: floor($starting-at/$increment-by);
+	$max: floor($max-width/$increment-by);
+
+	body {
+		&:before {
+	  		@include media-query-helper;
+
+			@for $i from $min through $max {
+				@media screen and (min-width: #{$i * $increment-by}) {
+		  			content: "@include media(#{$i * $increment-by})";
+				}
+	  		}
+		}
+  	}
+}
