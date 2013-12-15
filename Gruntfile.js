@@ -8,17 +8,29 @@ module.exports = function(grunt){
 		pkg: grunt.file.readJSON('package.json'),
 
 		watch: {
+			css: {
+				files: ['assets/sass/**/*.scss'],
+				tasks: ['compass:dist']
+			},
 			html: {
 				files: ['index.html'],
 				tasks: ['htmlhint']
 			},
-			js: {
-				files: ['assets/js/site.js'],
-				tasks: ['uglify']
+			img: {
+				files: ['**/*.{png,jpg,gif}'],
+				tasks: ['imagemin'],
+				options: {
+					spawn: false,
+				}
 			},
-			css: {
-				files: ['assets/sass/**/*.scss'],
-				tasks: ['compass:dist']
+			js: {
+				// files: ['assets/js/site.js'],
+				// tasks: ['uglify']
+				files: ['js/*.js'],
+				tasks: ['concat', 'uglify'],
+				options: {
+					spawn: false,
+				},
 			},
 			livereload: {
 				options: { livereload: true },
@@ -38,6 +50,16 @@ module.exports = function(grunt){
 			}
 		},
 
+		concat: {
+			dist: {
+				src: [
+					'js/*.js', // All JS in the libs folder
+					'js/site.js'  // This specific file
+				],
+				dest: 'js/production.js',
+			}
+		},
+
 		htmlhint: {
 			build: {
 				options: {
@@ -50,6 +72,17 @@ module.exports = function(grunt){
 					'id-unique': true
 				},
 				src: ['index.html']
+			}
+		},
+
+		imagemin: {
+			dynamic: {
+				files: [{
+					expand: true,
+					cwd: 'assets/img/',
+					src: ['**/*.{png,jpg,gif}'],
+					dest: 'assets/img/'
+				}]
 			}
 		},
 

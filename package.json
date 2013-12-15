@@ -1,15 +1,17 @@
 {
   "name": "Boilerplate",
-	"version": "0.0.2",
-	"devDependencies" : {
-		"grunt" :                       "~0.4.0",
-		"grunt-contrib-cssmin":         "*",
-		"grunt-contrib-sass":           "*",
-		"grunt-contrib-compass":        "*",
-		"grunt-contrib-uglify":         "*",
-		"grunt-contrib-watch":          "*",
-		"grunt-cssc":                   "*",
-		"grunt-htmlhint":               "*",
-		"matchdep":                     "*"
-	}
+  "version": "0.0.3",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin":   "*",
+    "grunt-contrib-sass":     "*",
+    "grunt-contrib-concat":   "*",
+    "grunt-contrib-compass":  "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-uglify":   "*",
+    "grunt-contrib-watch":    "*",
+    "grunt-cssc":             "*",
+    "grunt-htmlhint":         "*",
+    "matchdep":               "*",
+  }
 }
