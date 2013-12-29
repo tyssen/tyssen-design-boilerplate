@@ -8,17 +8,29 @@ module.exports = function(grunt){
 		pkg: grunt.file.readJSON('package.json'),
 
 		watch: {
+			css: {
+				files: ['public_html/assets/sass/**/*.scss'],
+				tasks: ['compass:dist']
+			},
 			html: {
 				files: ['public_html/index.html'],
 				tasks: ['htmlhint']
 			},
-			js: {
-				files: ['public_html/assets/js/site.js'],
-				tasks: ['uglify']
+			img: {
+				files: ['**/*.{png,jpg,gif}'],
+				tasks: ['imagemin','imageoptim'],
+				options: {
+					spawn: false,
+				}
 			},
-			css: {
-				files: ['public_html/assets/sass/**/*.scss'],
-				tasks: ['compass:dist']
+			js: {
+				// files: ['public_html/assets/js/site.js'],
+				// tasks: ['uglify']
+				files: ['public_html/assets/js/*.js'],
+				tasks: ['concat', 'uglify'],
+				options: {
+					spawn: false,
+				},
 			},
 			livereload: {
 				options: { livereload: true },
@@ -50,6 +62,23 @@ module.exports = function(grunt){
 					'id-unique': true
 				},
 				src: ['public_html/index.html']
+			}
+		},
+
+		imagemin: {
+			dynamic: {
+				files: [{
+					expand: true,
+					cwd: 'assets/img/',
+					src: ['**/*.{png,jpg,gif}'],
+					dest: 'assets/img/'
+				}]
+			}
+		},
+
+		imageoptim: {
+			myTask: {
+				src: ['assets/img']
 			}
 		},
 

@@ -1,6 +1,6 @@
 {
   "name": "Boilerplate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-cssmin":   "*",
@@ -12,6 +12,7 @@
     "grunt-contrib-watch":    "*",
     "grunt-cssc":             "*",
     "grunt-htmlhint":         "*",
+    "grunt-imageoptim":       "*",
     "matchdep":               "*",
   }
 }

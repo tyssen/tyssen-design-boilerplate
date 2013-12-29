@@ -18,7 +18,7 @@ module.exports = function(grunt){
 			},
 			img: {
 				files: ['**/*.{png,jpg,gif}'],
-				tasks: ['imagemin'],
+				tasks: ['imagemin','imageoptim'],
 				options: {
 					spawn: false,
 				}
@@ -26,7 +26,7 @@ module.exports = function(grunt){
 			js: {
 				// files: ['assets/js/site.js'],
 				// tasks: ['uglify']
-				files: ['js/*.js'],
+				files: ['assets/js/*.js'],
 				tasks: ['concat', 'uglify'],
 				options: {
 					spawn: false,
@@ -83,6 +83,12 @@ module.exports = function(grunt){
 					src: ['**/*.{png,jpg,gif}'],
 					dest: 'assets/img/'
 				}]
+			}
+		},
+
+		imageoptim: {
+			myTask: {
+				src: ['assets/img']
 			}
 		},
 
