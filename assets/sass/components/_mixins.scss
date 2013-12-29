@@ -17,6 +17,14 @@
 	@return percentage(($colNumber / $totalColumns));
 }
 
+@function em($target-size, $context-size: $base-font-size) {
+	@if $target-size == 0 { @return 0 }
+	@return $target-size / $context-size + 0em;
+}
+
+@function bl($amount: 1, $context-size: $base-font-size) {
+	@return em($baseline * $amount, $context-size);
+}
 
 //
 // Mixins
@@ -97,4 +105,9 @@
             @content;
         }
     }
+}
+
+@mixin nudge($distance) {
+	position: relative;
+	top: $distance;
 }
