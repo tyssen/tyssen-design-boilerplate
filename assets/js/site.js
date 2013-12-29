@@ -79,6 +79,12 @@ $LAB
 			},500);
 		}, false);
 
+		// JS validation for non HTML5 browsers
+
+		if (!Modernizr.input.required) {
+			// JavaScript form validation
+		}
+
 	})
 	// Home
 	.script(function(){

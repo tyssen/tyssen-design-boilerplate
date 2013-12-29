@@ -123,6 +123,19 @@ form {
 		}
 		input.error, input.error, textarea.error { border-color: $color-alert }
 
+		.help {
+			display:none;
+			input:focus + &,
+			input:invalid + & {
+			    display:inline-block;
+			}
+		}
+
+		input:required {
+			background:hsl(180, 50%, 90%);
+			border:1px solid $gray;
+		}
+
 		// input:-moz-placeholder { color: $grayLight }
 		// input::-webkit-input-placeholder { color: $grayLight }
 		// input:-ms-input-placeholder { color: $grayLight }
