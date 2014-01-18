@@ -12,6 +12,16 @@ module.exports = function(grunt){
 				files: ['public_html/assets/sass/**/*.scss'],
 				tasks: ['compass:dist']
 			},
+			cmq: {
+				options: {
+					log: false
+				},
+				your_target: {
+					files: {
+						'assets/build/css/': ['assets/css/*.css']
+					}
+				}
+			},
 			html: {
 				files: ['public_html/index.html'],
 				tasks: ['htmlhint']
