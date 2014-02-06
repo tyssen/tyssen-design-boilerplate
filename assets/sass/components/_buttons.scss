@@ -146,8 +146,8 @@ $button-disabled-opacity: 0.6 !default;
 	}
 
 	// We can control how much button radius us used.
-	@if $radius == true { @include border-radius($button-radius); }
-	@else if $radius { @include border-radius($radius); }
+	@if $radius == true { border-radius: $button-radius; }
+	@else if $radius { border-radius: $radius; }
 
 	@if $gradient {
 		@include background(linear-gradient(color-stops($bg, $bg 25%, darken($bg,10%))));
@@ -218,8 +218,8 @@ $button-disabled-opacity: 0.6 !default;
 	@media only screen {
 
 		.button {
-			@include box-shadow($shiny-edge-size $shiny-edge-color inset);
-			// @include box-shadow(inset 0 1px 0 rgba(#FFF,.2), 0 1px 2px rgba(#000,.05));
+			box-shadow: $shiny-edge-size $shiny-edge-color inset;
+			// box-shadow: inset 0 1px 0 rgba(#FFF,.2), 0 1px 2px rgba(#000,.05);
 			@include single-transition(background-color);
 
 			// &.large  { @include button-size($padding:false, $full-width:false); }

@@ -2,8 +2,6 @@
 
 @import
   "compass/css3",
-  // "compass/rgbapng",
-  "compass/typography/vertical_rhythm",
   "components/variables",
   "components/mixins"
   // "components/mediaqueries"
@@ -24,5 +22,3 @@
   "components/layout",
   "components/print"
 ;
-
-@include establish-baseline;
