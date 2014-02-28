@@ -1,3 +1,14 @@
+// font feature settings
+
+// hyphens: auto;
+// font-feature-settings: "dlig" 1, "kern" 1, "frac" 1;
+// font-feature-settings: "liga" 1, "dlig" 1;
+// font-feature-settings: "onum" 1, "tnum" 1, "frac" 1;
+// font-feature-settings: "smcp" 1;
+// font-feature-settings: "pcap" 1;
+// font-feature-settings: "kern" 1;
+// font-feature-settings: "ss01" 1, "swsh" 1, "cswh" 1, "calt";
+
 a {
 	color: $link-color;
 	font-weight: bold;
