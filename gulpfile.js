@@ -2,11 +2,14 @@
 var gulp = require('gulp'),
 	compass = require('gulp-compass'),
 	autoprefixer = require('gulp-autoprefixer'),
+	// inlineCss = require('gulp-inline-css'),
 	minifycss = require('gulp-minify-css'),
+	// cmq = require('gulp-combine-media-queries'),
 	minifyhtml = require('gulp-minify-html'),
 	//jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 	imagemin = require('gulp-imagemin'),
+	// svgmin = require('gulp-svgmin'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
@@ -31,6 +34,25 @@ gulp.task('styles', function() {
 		.pipe(refresh(server));
 });
 
+// gulp.task('cmq', function () {
+//   gulp.src('src/sass/**/*.css')
+// 	.pipe(cmq({
+// 		log: true
+// 	}))
+// 	.pipe(gulp.dest('public_html/assets/css'));
+// });
+
+// gulp.task('inline-styles', function() {
+// 	return gulp.src('src/html/*.html')
+// 		.pipe(inlineCss({
+// 			applyStyleTags: true,
+// 			applyLinkTags: true,
+// 			removeStyleTags: true,
+// 			removeLinkTags: true
+// 		}))
+// 		.pipe(gulp.dest('public_html/'));;
+// });
+
 //scripts
 gulp.task('scripts', function() {
 	return gulp.src('src/js/**/*.js')
@@ -52,8 +74,8 @@ gulp.task('html', function() {
 
 gulp.task('minifyhtml', function() {
   gulp.src('src/html/index.html')
-    .pipe(minifyhtml())
-    .pipe(gulp.dest('./'))
+	.pipe(minifyhtml())
+	.pipe(gulp.dest('./'))
 });
 
 //images
@@ -62,6 +84,12 @@ gulp.task('minifyhtml', function() {
 // 		.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
 // 		.pipe(refresh(server))
 // 		.pipe(gulp.dest('public_html/assets/img'));
+// });
+
+// gulp.task('svg', function() {
+// 	return gulp.src('public_html/assets/img/**/*.svg')
+// 	.pipe(svgmin())
+// 	.pipe(gulp.dest('public_html/assets/img'));
 // });
 
 //default task
