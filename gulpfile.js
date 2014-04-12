@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	// inlineCss = require('gulp-inline-css'),
 	minifycss = require('gulp-minify-css'),
+	uncss = require('gulp-uncss'),
 	// cmq = require('gulp-combine-media-queries'),
 	minifyhtml = require('gulp-minify-html'),
 	//jshint = require('gulp-jshint'),
@@ -32,6 +33,14 @@ gulp.task('styles', function() {
 		.pipe(minifycss())
 		.pipe(gulp.dest('public_html/assets/css'))
 		.pipe(refresh(server));
+});
+
+gulp.task('uncss', function() {
+	gulp.src('public_html/assets/css/master.css')
+		.pipe(uncss({
+			html: ['index.php']
+		}))
+		.pipe(gulp.dest('public_html/assets/css'));
 });
 
 // gulp.task('cmq', function () {
@@ -73,7 +82,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('minifyhtml', function() {
-  gulp.src('src/html/index.html')
+	gulp.src('src/html/index.html')
 	.pipe(minifyhtml())
 	.pipe(gulp.dest('./'))
 });
