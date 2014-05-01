@@ -1,0 +1,68 @@
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu {
+	float: left;
+	font: 1.125em/1 $hd-family;
+	li {
+		// background: #BDD2FF;
+		position: relative;
+		transition: background .2s;
+		white-space: nowrap; /* no need for Supersubs plugin */
+		*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	}
+	ul {
+		box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+		display: none;
+		font: .777777778em/1 $body-font-family;
+		min-width: 12em;
+		*width: 12em;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 99;
+		li {
+			background: $color1;
+		}
+		ul {
+			top: 0;
+			left: 100%;
+			li {
+				background: $color1;
+			}
+		}
+			a {
+				border-top: 1px solid darken($color2,20%);
+				&:hover,&:focus {
+					background-color: $color3;
+					color: $color1;
+				}
+			}
+	}
+	> li {
+		float: left;
+	}
+	li:hover,
+	li.sfHover {
+		// background: #CFDEFF;
+		transition: none;
+		& > ul {
+			display: block;
+		}
+	}
+
+	a {
+		// border-left: 1px solid #fff;
+		color: $color2;
+		display: block;
+		padding: .75em 1em;
+		position: relative;
+		text-decoration: none;
+		zoom: 1;
+	}
+	a:hover,a:focus,.sfHover>a {
+		color: #FFF;
+	}
+}

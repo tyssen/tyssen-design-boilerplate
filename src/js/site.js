@@ -58,9 +58,30 @@ $LAB
 			return false;
 		});
 
+		// $(function() {
+		// 	$('section[id]').attr('tabindex', '0');
+		// 	$('a[href*=#]:not([href=#])').click(function() {
+		// 		var $linkElem = $(this);
+		// 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		// 			var target = $(this.hash);
+		// 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		// 			if (target.length) {
+		// 				$('html,body').animate({
+		// 					scrollTop: target.offset().top
+		// 				}, 1000, function() {
+		// 					target.focus();
+		// 					window.location.hash = $linkElem.attr('href').substring(1);
+		// 				 	// window.location.hash = $(this).attr('href').substring(1, $(this).attr('href').length);
+		// 				});
+		// 				return false;
+		// 			}
+		// 		}
+		// 	});
+		// });
+
 		// Show menu link for screens smaller than 600px
 
-		// if(Modernizr.mq('only screen and (max-width: 599px)')) {
+		/@include breakpoint(720) {
 		// 	$('.header header').append('<a href="#nav" id="show-menu">Menu <span>&#x25BC;</span></a>');
 		// }
 
