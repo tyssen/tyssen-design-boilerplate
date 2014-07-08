@@ -1,54 +1,40 @@
-$small-screen: emCalc(768) !default;
-$medium-screen: emCalc(1280) !default;
-$large-screen: emCalc(1440) !default;
-
-$screen: "only screen" !default;
-$small: "only screen and (min-width:"#{$small-screen}")" !default;
-$medium: "only screen and (min-width:"#{$medium-screen}")" !default;
-$large: "only screen and (min-width:"#{$large-screen}")" !default;
-$landscape: "only screen and (orientation: landscape)" !default;
-$portrait: "only screen and (orientation: portrait)" !default;
-
 $old-ie: false !default;
 
 @mixin breakpoint($point) {
-	@if $point == 600 {
-		@if $old-ie {
-			@content;
-		}
-		@else {
-			// @media only screen and (min-width: $point / 16 * 1em) { @content; }
-			@media only screen and (min-width: emCalc(600)) { @content; }
-		}
+	@if $old-ie {
+		@content;
+	}
+	@else {
+		@media only screen and (min-width: emCalc($point)) { @content; }
 	}
 }
 
 @mixin retina($ratio: 1.5) {
-	$dpi: $ratio * 96;
-	$opera-ratio: $ratio * 100;
+  $dpi: $ratio * 96;
+  $opera-ratio: $ratio * 100;
 
-	@media only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),
+  @media only screen and (-webkit-min-device-pixel-ratio: #{$ratio}),
 		 only screen and (     -o-min-device-pixel-ratio: '#{$opera-ratio}/100'),
 		 only screen and (                min-resolution: #{$dpi}dpi),
 		 only screen and (                min-resolution: #{$ratio}dppx) {
 	@content;
-	}
+  }
 }
 
 $max-width: em(1200);
-$show_media_queries: true;
+$show_media_queries: false;
 
 @mixin media-query-helper {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	z-index: 9999;
-	padding: .5em .75em;
-	font-family: monospace;
-	font-size: 1.125em;
-	line-height: 1;
-	color: #20D832;
-	background: rgba(0,0,0,.8);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  padding: .5em .75em;
+  font-family: monospace;
+  font-size: 1.125em;
+  line-height: 1;
+  color: #20D832;
+  background: rgba(0,0,0,.8);
 }
 
 @if $show_media_queries == true {
@@ -61,13 +47,13 @@ $show_media_queries: true;
 
 	body {
 		&:before {
-				@include media-query-helper;
+	  		@include media-query-helper;
 
 			@for $i from $min through $max {
 				@media screen and (min-width: #{$i * $increment-by}) {
-						content: "@include media(#{$i * $increment-by})";
+		  			content: "@include media(#{$i * $increment-by})";
 				}
-				}
+	  		}
 		}
-		}
+  	}
 }
