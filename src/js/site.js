@@ -81,9 +81,10 @@ $LAB
 
 		// Show menu link for screens smaller than 600px
 
-		/@include breakpoint(720) {
-		// 	$('.header header').append('<a href="#nav" id="show-menu">Menu <span>&#x25BC;</span></a>');
-		// }
+		if(Modernizr.mq('only screen and (max-width: 599px)')) {
+	 		$('.header header').append('<a href="#nav" id="show-menu">Menu <span>&#x25BC;</span></a>');
+		}
+
 
 		// Turn off hover effects when scrolling
 
