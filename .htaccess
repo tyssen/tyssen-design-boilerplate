@@ -699,9 +699,20 @@ FileETag None
 # </IfModule>
 
 <IfModule mod_rewrite.c>
+  RewriteEngine On
   RewriteCond %{HTTPS} !=on
+
+  ### SET UP ENVIORNMENTS ###
+
+  RewriteRule .* - [E=ENVIRONMENT:master]
+
+  RewriteCond %{SERVER_NAME} localhost [OR]
+  RewriteCond %{SERVER_NAME} .dev-server.dnsalias.com$ [OR]
+  RewriteCond %{SERVER_NAME} .local$
+  RewriteRule .* - [E=ENVIRONMENT:develop]
+
 # Force the www (not used here but listed for reference)
-  RewriteCond %{HTTP_HOST} !^xxxx.dev-server.dnsalias.com
+  RewriteCond %{ENV:ENVIRONMENT} master
   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
   RewriteCond %{HTTP_HOST} (.+)$ [NC]
   RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
