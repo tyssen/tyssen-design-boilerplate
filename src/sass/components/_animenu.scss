@@ -1,0 +1,272 @@
+// Variables
+$subMenuItemWidth: 320px;			// Minimum width for submenus' items
+$baseMenuBackground: $black;			// Base color theme
+$secondaryMenuBackground: $color3;	// Secondary color (highlights, triangles...)
+$baseMenuColor: #7B7B7B;				// Proper menu items color
+$gutter: .5em;						// Base gutter
+$input: "[type=checkbox]";  	// Checkbox hack selector
+
+// Menu background mixin
+@mixin menu-background($color, $menu-gradient: false) {
+	background-color: $color;
+	@if $menu-gradient == true {
+		background-image: linear-gradient(rgba(255, 255, 255, .2),
+												  rgba(255, 255, 255, 0));
+	}
+	@else {
+		background-image: none;
+	}
+}
+
+// Menu background mixin
+// The $size argument specifies the actual size of the triangle
+// The $shift-left helps on horizontal positioning.
+@mixin pseudo-triangle($size, $shift-left) {
+	&:after {
+		content: '';
+		position: absolute;
+		left: $shift-left * $gutter;
+		top: -$size * 2;
+		border: $size solid transparent;
+		border-bottom-color: inherit;
+	}
+}
+
+// Shortest clearfix. Ever. IE8+.
+// http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+%cf:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+// Fix for Android
+// http://timpietrusky.com/advanced-checkbox-hack
+body {
+	-webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+	from { padding: 0; }
+	to { padding: 0; }
+}
+
+// New box model, small reset, global stuff
+.animenu {
+	font: .875em/1 $hd-family;
+	margin: 0 auto;
+	text-align: center;
+	@include clearfix;
+	ul {
+		font-size: 1em;
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		position: relative;
+		z-index: 3;
+		&:hover {
+			> ul {
+				opacity: 1;
+				visibility: visible;
+				// margin: 0;
+			}
+			// > a {
+			// 	color: lighten($baseMenuColor, 80%);
+			// }
+		}
+	}
+		a {
+			display: block;
+			font-weight: normal;
+		}
+	#{$input} {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	label {
+		display:none;
+		cursor: pointer;
+		user-select:none;
+	}
+}
+
+// First level -> main menu items
+
+.animenu > ul {
+	height: 90px;
+	@extend %cf;
+	> li {
+		display: inline-block;
+		margin: 0;
+		> a {
+			border-top: 6px solid transparent;
+			float: left;
+			padding: 2.5em 1em;
+			&:hover,&:focus,&.here {
+				border-top-color: $color1;
+				color: $color1;
+			}
+		}
+	}
+	a {
+		color: $baseMenuColor;
+		text-decoration: none;
+	}
+
+	// Second level
+
+	ul {
+		background-color: lighten($baseMenuBackground,5%);
+		// margin: 1 * $gutter 0 0 0;
+		opacity: 0;
+		position: absolute;
+		top: 100%; left: 0;
+		z-index: 3;
+		text-align: left;
+		visibility: hidden;
+		transition-property: margin, opacity;
+		transition-duration: .15s;
+		transition-timing-function: ease-in-out;
+		li {
+			display: block;
+			box-shadow: 0 1px 0 lighten($baseMenuBackground, 5%),
+								0 2px 0 lighten($baseMenuBackground, 10%);
+			&:last-child {
+				box-shadow: none;
+			}
+		}
+		a {
+			padding: 2 * $gutter 15px;
+			width: $subMenuItemWidth;
+			display: block;
+			border-color: lighten($baseMenuBackground, 5%);
+			&:hover,&:focus {
+				background-color: $secondaryMenuBackground;
+				border-color: $secondaryMenuBackground;
+				color: $color1;
+				text-shadow: none;
+			}
+		}
+	}
+}
+
+// Last but not least: the responsive stuff
+@media screen and (max-width: 30em) {
+
+	%revert-list {
+		visibility: visible;
+		opacity: 1;
+		display: none;
+	}
+
+	.animenu {
+		padding: 0;
+		ul {
+			max-width: 100%;
+			width: 100%;
+		}
+		#{$input}:checked ~ label,
+		#{$input} ~ label:hover, {
+			color: lighten($baseMenuColor, 80%);
+		}
+		label {
+			color: #8B8B8B;
+			display:block;
+			font-weight: normal;
+			position:absolute;
+			right: 15px; top: 39px;
+			text-transform: uppercase;
+			width: auto;
+			&:before {
+				content: "\2261";
+				font-size: 1.5em;
+				line-height: .5;
+				position: relative;
+			}
+		}
+		// First level -> main menu items
+
+		> ul {
+			background-color: #FFF;
+			height: auto;
+			position: relative;
+			margin: 6em 0 0;
+			padding: 0 12px;
+			text-align: left;
+			@extend %revert-list;
+			li {
+				display: block;
+			}
+			> li {
+				float: none;
+				> a {
+					border-top: 1px solid $gray;
+					float: none;
+					display: block;
+					padding: 1em 0;
+					&:after {
+						content: '›';
+						font-size: 21px;
+						font-weight: bold;
+						position: absolute;
+						right: 0; top: .5em;
+					}
+					&:hover,&:focus {
+						border-top-color: $gray;
+					}
+				}
+				&:first-child > a {
+					border-top: 0;
+				}
+			}
+
+			ul {
+				position: static;
+				@include menu-background(lighten($baseMenuBackground, 10%), false);
+				margin: 0;
+				@extend %revert-list;
+				transition-property: none;
+				li {
+					&:first-child > a {
+						&:after {
+							content: none;
+						}
+					}
+					&:last-child > a {
+					}
+				}
+				a {
+					padding-left: 2 * $gutter;
+					display: block;
+					width: auto;
+				}
+			} // end second level
+		} // end first level
+		#{$input}:checked {
+			~ ul {
+				display: block;
+				ul {
+					display: block;
+				}
+			}
+		} // end #{$input}:checked
+	} // end .animenu
+
+} //end @media
+
+
+// Adjust menu when resizing [in this case].
+// To be updated depending of menu items length.
+// @media screen and (max-width: 30em) {
+// 	.animenu > ul {
+// 		font-size: 1.5em;
+// 		text-align: center;
+// 		> li {
+// 			> a {
+// 				padding: $gutter 2 * $gutter;
+// 			}
+// 		}
+// 	}
+// }
