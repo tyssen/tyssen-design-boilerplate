@@ -25,6 +25,8 @@ section { display: block }
   }
 }
 
+svg { pointer-events: none; }
+
 // audio, canvas, progress, video {
 //  display: inline-block;
 //  *display: inline;
