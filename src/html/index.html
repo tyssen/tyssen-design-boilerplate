@@ -49,5 +49,24 @@
 	<!--  <script>
 		var width=window.innerWidth||document.body.clientWidth;var height=window.innerHeight||document.body.clientHeight;width=Math.round(width/100)*100;height=Math.round(height/100)*100;var size=width+"x"+height;(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-XXXX-Y');ga('send','pageview');ga('send','event','Browser Size','Range',size);
 	</script>-->
+	<script src="http://perfbar.khalidlafi.com.global.prod.fastly.net/perfbar-0.0.2.min.js"></script>
+	<script>
+		perfBar.init({
+			// list of the built-in metrics http://lafikl.github.io/perfBar/#list
+			budget: {
+			// the key is the metric id
+			'loadTime': {
+			max: 200
+			},
+			'redirectCount': {
+			max: 1
+			},
+			'globalJS': {
+				min: 2,
+				max: 5
+				}
+			}
+		});
+	</script>
 </body>
 </html>
