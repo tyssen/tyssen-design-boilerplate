@@ -1,0 +1,42 @@
+.wrap {
+	margin: 0 auto;
+	padding: 0;
+	max-width: 960px;
+}
+
+	#content {
+		clear: both;
+		overflow: hidden
+	}
+
+		[role=main] {
+			// float: ;
+			// width: ;
+		}
+
+		[role=complementary] {
+			// float: ;
+			// width: ;
+		}
+
+//------ content ------//
+
+// Contact //
+
+.map {
+	border: 1px solid $grayLight;
+	display: inline;
+	float: right;
+	height: 300px;
+	margin: 0 0 1em 15px;
+	width: 300px;
+}
+.vcard {
+	margin-bottom: 2em;
+	h3 { margin: .5em 0 0 }
+	p { margin: 0 }
+		em {
+			font-style: normal;
+			font-weight: bold
+		}
+}

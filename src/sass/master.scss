@@ -2,22 +2,26 @@
 
 @import
   "components/variables",
-  "components/mixins"
-  // "components/mediaqueries"
+  "components/mixins",
+  "components/mediaqueries"
 ;
-
-// // @include font-face("fontello", font-files("/assets/font/fontello.eot?30694902", "/assets/font/fontello.woff?30694902", "/assets/font/fontello.ttf?30694902" , "/assets/font/fontello.svg?30694902"));
 
 @import
   "components/global",
   "components/elements",
   "components/type",
   "components/images",
-  // "components/buttons",
+  "components/buttons",
   "components/forms"
 ;
 
 @import
-  "components/layout",
+  "layout/layout",
+  "layout/header"
+  "layout/animenu"
+  "layout/footer"
+;
+
+@import
   "components/print"
 ;

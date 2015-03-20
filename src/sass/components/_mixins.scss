@@ -170,3 +170,12 @@
 	width: ceil($width*($percent/100));
 	height: ceil($height*($percent/100));
 }
+
+@mixin truncate($width: 100%) {
+	width: $width;
+	max-width: 100%;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

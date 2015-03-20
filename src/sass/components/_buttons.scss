@@ -214,6 +214,10 @@ $button-disabled-opacity: 0.6 !default;
 		// &.large { @include button-size($padding:false, $is-input:$button-lrg); }
 	}
 
+	a.button {
+		text-decoration: none;
+	}
+
 	// Styles for any browser or device that support media queries
 	@media only screen {
 
