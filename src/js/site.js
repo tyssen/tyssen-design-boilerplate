@@ -108,39 +108,27 @@ $LAB
 		}
 
 	})
-	// Home
-	.script(function(){
-		if ($('body').hasClass('home')) {
-			return "http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js";
-		}
-	})
-	.wait(function(){
-		$('.slides').cycle({
-			fx:      'fade',
-			speed:   2000,
-			timeout: 8000,
-			// pager:      '.pager',
-			// pagerEvent: 'mouseover',
-			pauseOnPagerHover: true
-		});
-	})
-	// Study pages
-	.script(function(){
-		if ($('body').hasClass('study')) {
-			return "/assets/js/jquery.fancybox.pack.js";
-		}
-	})
-	.wait(function(){
-		$("article ul a").fancybox({
-			width 		: '90%',
-			fitToView	: true,
-			autoSize	: true,
-			closeClick	: false,
-			openEffect	: 'fade',
-			closeEffect	: 'fade',
-			type		: 'ajax'
-		});
-	})
 
-	// .script("/assets/new/js/helper.js")
+	// Print out current image source
+
+	(function() {
+	  var currentSrc, oldSrc, imgEl;
+	  var showPicSrc = function() {
+	    oldSrc     = currentSrc;
+	    imgEl      = document.getElementById('picimg');
+	    currentSrc = imgEl.currentSrc || imgEl.src;
+
+	    if (typeof oldSrc === 'undefined' || oldSrc !== currentSrc) {
+	      document.getElementById('logger').innerHTML = currentSrc;
+	    }
+	  };
+
+	  // You may wish to debounce resize if you have performance concerns
+	  window.addEventListener('resize', showPicSrc);
+	  window.addEventListener('load', showPicSrc);
+	})(window);
+	  // You may wish to debounce resize if you have performance concerns
+	  window.addEventListener('resize', showPicSrc);
+	  window.addEventListener('load', showPicSrc);
+	})(window);
 ;
