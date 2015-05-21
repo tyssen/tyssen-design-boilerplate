@@ -2,28 +2,17 @@
 // Functions
 //
 
-// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
 @function emCalc($pxWidth) {
 	@return $pxWidth / $base-font-size * 1em;
 }
 
-// Creating rems and pixels
 @function remCalc($pxWidth) {
 	@return $pxWidth / $base-font-size * 1rem;
-}
-
-// Grid Calculation for Percentages
-@function gridCalc($colNumber, $totalColumns) {
-	@return percentage(($colNumber / $totalColumns));
 }
 
 @function em($target-size, $context-size: $base-font-size) {
 	@if $target-size == 0 { @return 0 }
 	@return $target-size / $context-size + 0em;
-}
-
-@function bl($amount: 1, $context-size: $base-font-size) {
-	@return em($baseline * $amount, $context-size);
 }
 
 //
@@ -36,31 +25,8 @@
 }
 
 
-// We can control whether or not we have inset shadows edges.
-// @mixin inset-shadow($active:true) {
-// 	-webkit-box-shadow: $shiny-edge-size $shiny-edge-color inset;
-// 	box-shadow: $shiny-edge-size $shiny-edge-color inset;
-
-// 	@if $active { &:active {
-// 		-webkit-box-shadow: $shiny-edge-size $shiny-edge-active-color inset;
-// 		box-shadow: $shiny-edge-size $shiny-edge-active-color inset; } }
-// }
-
-// We use this to add transitions to elements
-@mixin single-transition($property:all, $speed:300ms, $ease:ease-out) {
-	-webkit-transition: $property $speed $ease;
-	-moz-transition: $property $speed $ease;
-	transition: $property $speed $ease;
-}
-
-// We use this to add box-sizing across browser prefixes
-@mixin box-sizing($type:border-box) {
-	-moz-box-sizing: $type;
-	-webkit-box-sizing: $type;
-	box-sizing: $type;
-}
-
 // We use this to create equalateral triangles
+
 @mixin css-triangle($triangle-size, $triangle-color, $triangle-direction) {
 	content: "";
 	display: block;
@@ -79,37 +45,6 @@
 	@if ($triangle-direction == right) {
 		border-color: transparent $triangle-color transparent transparent;
 	}
-}
-
-// We use this to do clear floats
-@mixin clearfix() {
-	*zoom:1;
-	&:before, &:after { content: " "; display: table; }
-	&:after { clear: both; }
-}
-
-%pie { behavior: url("/assets/js/PIE.htc"); }
-
-@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
-	@if $IE9 == true{
-		.lt-ie9 & {
-			@content;
-		}
-		@media screen and (#{$query1}-#{$query2}: $point / $base-font-size +em) {
-			@content;
-		}
-	}
-
-	@else {
-		@media screen and (#{$query1}-#{$query2}: $point / $base-font-size +em) {
-			@content;
-		}
-	}
-}
-
-@mixin nudge($distance) {
-	position: relative;
-	top: $distance;
 }
 
 @mixin triangle($direction, $size: 6px, $color: #222){
@@ -139,36 +74,43 @@
 	}
 }
 
+// We use this to do clear floats
+@mixin clearfix() {
+	*zoom:1;
+	&:before, &:after { content: " "; display: table; }
+	&:after { clear: both; }
+}
+
+%pie { behavior: url("/assets/js/PIE.htc"); }
+
+@mixin mq($point, $query1: min, $query2: width, $IE: false) {
+	@if $IE == true{
+		.oldie & {
+			@content;
+		}
+		@media screen and (#{$query1}-#{$query2}: emCalc($point)) {
+			@content;
+		}
+	}
+
+	@else {
+		@media screen and (#{$query1}-#{$query2}: emCalc($point)) {
+			@content;
+		}
+	}
+}
+
+@mixin nudge($distance) {
+	position: relative;
+	top: $distance;
+}
+
 @mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
 	// There is a FF bug that requires all time values to have units, even 0 !!!!!!
 	-webkit-animation: $name $duration $iterations $timing-function $delay;
 	-moz-animation: $name $duration $iterations $timing-function $delay;
 	-o-animation: $name $duration $iterations $timing-function $delay;
 	animation: $name $duration $iterations $timing-function $delay;
-}
-
-@keyframes alertMe {
-	// -vendor prefixes omitted for brevity, but should be used in production
-	from {
-		border-width: 3px;
-		border-color: gold;
-	}
-	to {
-		border-width: 0;
-		border-color: rgba(gold, .1);
-	}
-}
-
-@mixin resize-sprite($map, $sprite, $percent) {
-	$spritePath:    sprite-path($map);
-	$spriteWidth:   image-width($spritePath);
-	$spriteHeight:  image-height($spritePath);
-	$width: image-width(sprite-file($map, $sprite));
-	$height: image-height(sprite-file($map, $sprite));
-	background-position: 0 floor(nth(sprite-position($map, $sprite), 2)  * ($percent/100) );
-	background-size: ceil($spriteWidth * ($percent/100)) ceil($spriteHeight * ($percent/100));
-	width: ceil($width*($percent/100));
-	height: ceil($height*($percent/100));
 }
 
 @mixin truncate($width: 100%) {
@@ -178,4 +120,30 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin gv($firstColor: #FFF, $secondColor: #DDD) {
+	background-color: $firstColor;
+	background-image: linear-gradient(to bottom, $firstColor, $secondColor);
+	 -pie-background: linear-gradient($firstColor, $secondColor);
+	@extend %pie;
+}
+
+@mixin gh($firstColor: #FFF, $secondColor: #DDD) {
+	background-color: $firstColor;
+	background-image: linear-gradient(to right, $firstColor, $secondColor);
+	 -pie-background: linear-gradient(left, $firstColor, $secondColor);
+	@extend %pie;
+}
+
+@mixin rgba($color, $alpha) {
+	background-color: rgba($color, $alpha);
+	 -pie-background: rgba($color, $alpha);
+	@extend %pie;
 }
