@@ -16,12 +16,32 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="viewport" content="width=device-width, minimal-ui">
 	<!--[if lt IE 9]><link rel="stylesheet" href="/assets/js/pie.htc"><![endif]-->
-	<link rel="stylesheet" href="assets/css/master.css?v=1">
-	<link rel="stylesheet" href="http://basehold.it/24">
-	<script src="assets/js/modernizr-2.6.1.min.js"></script>
-	<script src="assets/js/LAB.min.js"></script>
+	<meta name="fullcss" content="/assets/css/all.css">
+
+	<?php if(isset($_COOKIE['fullcss'])) : ?>
+	   <!--[if gt IE 8]><!-->
+	   	<link rel="stylesheet" href="/assets/css/all.css">
+	   <!--<![endif]-->
+	<?php else : ?>
+		<style><?php include("assets/css/critical.css"); ?></style>
+	<?php endif; ?>
+
+	<script><?php include("assets/js/enhance.min.js"); ?></script>
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="/assets/js/pie.htc">
+	<![endif]-->
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="/assets/css/ie.css">
+		<script src="/assets/js/modernizr.js"></script>
+	<![endif]-->
+
+	<noscript>
+		<!--[if gt IE 8]><!-->
+			<link rel="stylesheet" href="/assets/css/all.css">
+		<!--<![endif]-->
+	</noscript>
 </head>
 <body>
 	<div id="wrap">
@@ -49,24 +69,5 @@
 	<!--  <script>
 		var width=window.innerWidth||document.body.clientWidth;var height=window.innerHeight||document.body.clientHeight;width=Math.round(width/100)*100;height=Math.round(height/100)*100;var size=width+"x"+height;(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-XXXX-Y');ga('send','pageview');ga('send','event','Browser Size','Range',size);
 	</script>-->
-	<script src="http://perfbar.khalidlafi.com.global.prod.fastly.net/perfbar-0.0.2.min.js"></script>
-	<script>
-		perfBar.init({
-			// list of the built-in metrics http://lafikl.github.io/perfBar/#list
-			budget: {
-			// the key is the metric id
-			'loadTime': {
-			max: 200
-			},
-			'redirectCount': {
-			max: 1
-			},
-			'globalJS': {
-				min: 2,
-				max: 5
-				}
-			}
-		});
-	</script>
 </body>
 </html>
